@@ -17,6 +17,12 @@ defmodule SmartPetFeederAppWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :index
+
+    get "/login", SessionController, :login
+    get "/register", SessionController, :register
+    post "/logout", SessionController, :logout
+    post "/set_auth_configs", SessionController, :set_auth_configs
+    
   end
 
   # Other scopes may use custom stacks.
