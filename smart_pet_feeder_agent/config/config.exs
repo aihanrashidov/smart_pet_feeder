@@ -39,4 +39,5 @@ config :embeded_agent,
   agent_queue: "smart_pet_feeder_agent_queue",
   web_exchange: "smart_pet_feeder_web_exchange",
   web_queue: "smart_pet_feeder_web_queue",
-  internet_check_time_delay: 2000
+  internet_check_time_delay: 2000,
+  message_check: 1000

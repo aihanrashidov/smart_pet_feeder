@@ -12,8 +12,8 @@ defmodule RabbitMQCommunication do
   @virtual_host Application.get_env(:embeded_agent, :virtual_host)
   @username Application.get_env(:embeded_agent, :username)
   @password Application.get_env(:embeded_agent, :password)
-  @web_exchange Application.get_env(:embeded_agent, :web_exchange)
-  @web_queue Application.get_env(:embeded_agent, :web_queue)
+  @agent_exchange Application.get_env(:embeded_agent, :agent_exchange)
+  @agent_queue Application.get_env(:embeded_agent, :agent_queue)
   @web_exchange Application.get_env(:embeded_agent, :web_exchange)
   @web_queue Application.get_env(:embeded_agent, :web_queue)
 
@@ -91,7 +91,7 @@ defmodule RabbitMQCommunication do
       Logger.info("[RabbitMQCommunication] New message has been received.", log: :info)
       # Adding the new message to the state.
       IO.inspect(msg)
-      #MessageHandler.add_new_message(msg)
+      MessageHandler.add_new_message(msg)
     catch
       error ->
         Logger.error("[RabbitMQCommunication] Could not send back acknowledge : #{inspect(error)}", log: :error)
