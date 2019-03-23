@@ -8,7 +8,24 @@
 use Mix.Config
 
 config :smart_pet_feeder_app,
-  ecto_repos: [SmartPetFeederApp.Repo]
+  ecto_repos: [SmartPetFeederApp.Repo],
+  token_exp_time: 6000 * 24
+
+config :smart_pet_feeder_app, :jwt,
+  alg: "RS256",
+  keys: [
+    priv: {Path.join([File.cwd!(), "priv/certs"]), "private_key.pem"},
+    pub: {Path.join([File.cwd!(), "priv/certs"]), "public_key.pem"}
+  ]
+
+# config :smart_pet_feeder_app, :communication,
+#   rabbitmq: [
+#     host: "31.13.251.48",
+#     port: 5672,
+#     vhost: "smartpetfeeder",
+#     username: "ayhan",
+#     password: "rich12ard"
+#   ]
 
 # Configures the endpoint
 config :smart_pet_feeder_app, SmartPetFeederAppWeb.Endpoint,

@@ -1,0 +1,27 @@
+<%= render "navbar.html" %>
+
+<input type="hidden" id="username_conf" value=<%= @username %>>
+<input type="hidden" id="token_conf" value=<%= @token %>>
+
+<div id="opeartion_type">
+    <select id="select_operation" class="form-control">
+        <option value="" disabled selected>Select Operation</option>
+        <option>Add feeder</option>
+        <option>Delete feeder</option>
+        <option>Update feeder</option>
+    </select>
+</div>
+
+<div id="display_operation">
+    <form id="operation_form">
+    </form>
+</div>
+
+<div id="btn_toggle">
+    <button type="button" class="btn btn-dark" id="send_operation">Confirm</button>
+</div>
+
+<br>
+
+<div id="display_feeders">
+</div>

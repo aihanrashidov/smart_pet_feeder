@@ -42,7 +42,14 @@ defmodule SmartPetFeederApp.MixProject do
       {:phoenix_live_reload, "~> 1.2", only: :dev},
       {:gettext, "~> 0.11"},
       {:jason, "~> 1.0"},
-      {:plug_cowboy, "~> 2.0"}
+      {:plug_cowboy, "~> 2.0"},
+      {:optium, "~> 0.2"},
+      {:json_web_token, "~> 0.2"},
+      {:comeonin, "~> 4.0"},
+      {:argon2_elixir, "~> 1.2"},
+      {:bcrypt_elixir, "~> 1.1"},
+      {:amqp, "~> 1.1"},
+      {:httpoison, "~> 1.2"}
     ]
   end
 

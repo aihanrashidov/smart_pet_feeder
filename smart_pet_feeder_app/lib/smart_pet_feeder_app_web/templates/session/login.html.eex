@@ -1,4 +1,10 @@
-<input type="text" id="username" placeholder="Username">
-<input type="password" id="password" placeholder="Password">
-<button id="login">Login</button>
-<button id="register_new_user">Register</button>
+
+<div>
+    <div id="login_img"><img src="/images/login_icon.svg"></div>
+    <div id="app_name"><label>SmartPetFeeder</label></div>
+    <div id='login_inp'><input type="text" class='form-control' id="username" placeholder="Username"></div>
+    <div id='login_inp'><input type="password" class='form-control' id="password" placeholder="Password"></div>
+</div>
+
+<button id="login" class="btn btn-dark">Login</button>
+<label>For a new user click <a href="/register">here</a> to register an account.</label>
