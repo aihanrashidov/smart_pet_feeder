@@ -1,6 +1,7 @@
 defmodule SmartPetFeederApp.DBManager do
   alias SmartPetFeederApp.UserOperations
   alias SmartPetFeederApp.PetOperations
+  alias SmartPetFeederApp.FeederOperations
 
   require Logger
 
@@ -24,6 +25,10 @@ defmodule SmartPetFeederApp.DBManager do
 
   @user_get %{}
 
+  @user_get_user_id %{
+    username: [required: true, validator: &is_binary/1]
+  }
+
   ## Pet validation schemas
   @pet_add %{
     name: [required: true, validator: &is_binary/1],
@@ -36,7 +41,7 @@ defmodule SmartPetFeederApp.DBManager do
 
   @pet_update %{
     pet_id: [required: true, validator: &is_integer/1],
-    list: [required: true, validator: validator: &SmartPetFeederApp.DBManager.pet_list_validator/1]
+    list: [required: true, validator: &SmartPetFeederApp.DBManager.pet_list_validator/1]
   }
 
   @pet_delete %{
@@ -56,12 +61,45 @@ defmodule SmartPetFeederApp.DBManager do
     user_id: [validator: &is_integer/1]
   }
 
+  ## Feeder validation schemas
+  @feeder_add %{
+    serial: [required: true, validator: &is_binary/1],
+    user_id: [required: true, validator: &is_integer/1]
+  }
+
+  @feeder_update %{
+    feeder_id: [required: true, validator: &is_integer/1],
+    list: [required: true, validator: &SmartPetFeederApp.DBManager.feeder_list_validator/1]
+  }
+
+  @feeder_delete %{
+    feeder_id: [required: true, validator: &is_integer/1]
+  }
+
+  @feeder_get %{
+    user_id: [required: true, validator: &is_integer/1]
+  }
+
+  @feeder_update_list %{
+    serial: [validator: &is_binary/1],
+    device_status: [validator: &is_binary/1],
+    water_status: [validator: &is_binary/1],
+    food_status: [validator: &is_binary/1]
+  }
+
   ## Users operations
   def add(:user, params) do
     case Optium.parse(params, @user_add) do
       {:ok, _} ->
         if Kernel.map_size(@user_add) == Kernel.length(params) do
-          [username: username, password: password, email: email, first_name: first_name, last_name: last_name] = params
+          [
+            username: username,
+            password: password,
+            email: email,
+            first_name: first_name,
+            last_name: last_name
+          ] = params
+
           Kernel.apply(UserOperations, :add, [username, password, email, first_name, last_name])
         else
           {:error, :key_match_error}
@@ -87,13 +125,27 @@ defmodule SmartPetFeederApp.DBManager do
     end
   end
 
+  def get_user_id(:user, params) do
+    case Optium.parse(params, @user_get_user_id) do
+      {:ok, _} ->
+        if Kernel.map_size(@user_get_user_id) == Kernel.length(params) do
+          Kernel.apply(UserOperations, :get_user_id, [params[:username]])
+        else
+          {:error, :incorrect_or_missing_input_data}
+        end
+
+      {:error, _error} ->
+        {:error, :incorrect_or_missing_input_data}
+    end
+  end
+
   def delete(:user, params) do
     case Optium.parse(params, @user_delete) do
       {:ok, _} ->
         if Kernel.map_size(@user_delete) == Kernel.length(params) do
           [user_id: user_id] = params
           Kernel.apply(UserOperations, :delete, [user_id])
-    else
+        else
           {:error, :key_match_error}
         end
 
@@ -108,7 +160,7 @@ defmodule SmartPetFeederApp.DBManager do
         if Kernel.map_size(@user_get) == Kernel.length(params) do
           [] = params
           Kernel.apply(UserOperations, :get, [])
-    else
+        else
           {:error, :key_match_error}
         end
 
@@ -117,12 +169,14 @@ defmodule SmartPetFeederApp.DBManager do
     end
   end
 
-  ##pet operations
+  ## Pet operations
   def add(:pet, params) do
     case Optium.parse(params, @pet_add) do
       {:ok, _} ->
         if Kernel.map_size(@pet_add) == Kernel.length(params) do
-          [name: name, type: type, age: age, gender: gender, breed: breed, user_id: user_id] = params
+          [name: name, type: type, age: age, gender: gender, breed: breed, user_id: user_id] =
+            params
+
           Kernel.apply(PetOperations, :add, [name, type, age, gender, breed, user_id])
         else
           {:error, :key_match_error}
@@ -154,7 +208,7 @@ defmodule SmartPetFeederApp.DBManager do
         if Kernel.map_size(@pet_delete) == Kernel.length(params) do
           [pet_id: pet_id] = params
           Kernel.apply(PetOperations, :delete, [pet_id])
-         else
+        else
           {:error, :key_match_error}
         end
 
@@ -182,13 +236,95 @@ defmodule SmartPetFeederApp.DBManager do
     case Optium.parse(params, @pet_update_list) do
       {:ok, _} ->
         valids = for {x, _y} <- params, do: Map.has_key?(@pet_update_list, x)
-        if  Kernel.length(params) <= Kernel.map_size(@pet_update_list) && Enum.any?(valids, fn(x)-> x == false end) == false && params != [] do
+
+        if Kernel.length(params) <= Kernel.map_size(@pet_update_list) &&
+             Enum.any?(valids, fn x -> x == false end) == false && params != [] do
           true
         else
           false
         end
 
-      {:error, _error} -> 
+      {:error, _error} ->
         false
     end
   end
+
+  ## Feeder operations
+  def add(:feeder, params) do
+    case Optium.parse(params, @feeder_add) do
+      {:ok, _} ->
+        if Kernel.map_size(@feeder_add) == Kernel.length(params) do
+          [serial: serial, user_id: user_id] = params
+
+          Kernel.apply(FeederOperations, :add, [serial, user_id])
+        else
+          {:error, :key_match_error}
+        end
+
+      {:error, _error} ->
+        {:error, :key_match_error}
+    end
+  end
+
+  def update(:feeder, params) do
+    case Optium.parse(params, @feeder_update) do
+      {:ok, _} ->
+        if Kernel.map_size(@feeder_update) == Kernel.length(params) do
+          [feeder_id: feeder_id, list: list] = params
+          Kernel.apply(FeederOperations, :update, [feeder_id, list])
+        else
+          {:error, :key_match_error}
+        end
+
+      {:error, _error} ->
+        {:error, :key_match_error}
+    end
+  end
+
+  def delete(:feeder, params) do
+    case Optium.parse(params, @feeder_delete) do
+      {:ok, _} ->
+        if Kernel.map_size(@feeder_delete) == Kernel.length(params) do
+          [feeder_id: feeder_id] = params
+          Kernel.apply(FeederOperations, :delete, [feeder_id])
+        else
+          {:error, :key_match_error}
+        end
+
+      {:error, _error} ->
+        {:error, :key_match_error}
+    end
+  end
+
+  def get(:feeder, params) do
+    case Optium.parse(params, @feeder_get) do
+      {:ok, _} ->
+        if Kernel.map_size(@feeder_get) == Kernel.length(params) do
+          [user_id: user_id] = params
+          Kernel.apply(FeederOperations, :get, [user_id])
+        else
+          {:error, :key_match_error}
+        end
+
+      {:error, _error} ->
+        {:error, :key_match_error}
+    end
+  end
+
+  def feeder_list_validator(params) do
+    case Optium.parse(params, @feeder_update_list) do
+      {:ok, _} ->
+        valids = for {x, _y} <- params, do: Map.has_key?(@feeder_update_list, x)
+
+        if Kernel.length(params) <= Kernel.map_size(@feeder_update_list) &&
+             Enum.any?(valids, fn x -> x == false end) == false && params != [] do
+          true
+        else
+          false
+        end
+
+      {:error, _error} ->
+        false
+    end
+  end
+end

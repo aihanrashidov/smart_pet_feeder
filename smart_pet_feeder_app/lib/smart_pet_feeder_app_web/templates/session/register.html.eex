@@ -1,6 +1,12 @@
-<input type="text" id="username" placeholder="Username">
-<input type="password" id="password" placeholder="Password">
-<input type="email" id="email" placeholder="Email">
-<input type="text" id="first_name" placeholder="First name">
-<input type="text" id="last_name" placeholder="Last name">
-<button id="register">Register</button>
+
+<div>
+    <div id="login_img"><img src="/images/login_icon.svg"></div>
+    <div id="app_name"><label>SmartPetFeeder</label></div>
+    <div id='register_inp'><input type="text" class='form-control' id="username" placeholder="Username"></div>
+    <div id='register_inp'><input type="password" class='form-control' id="password" placeholder="Password"></div>
+    <div id='register_inp'><input type="email" class='form-control' id="email" placeholder="Email"></div>
+    <div id='register_inp'><input type="text" class='form-control' id="first_name" placeholder="First name"></div>
+    <div id='register_inp'><input type="text" class='form-control' id="last_name" placeholder="Last name"></div>
+</div>
+<button id="register" class="btn btn-dark">Register</button>
+<label>You already have an account? Click <a href="/login">here</a> to login.</label>
