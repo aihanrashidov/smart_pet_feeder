@@ -29,7 +29,7 @@ use Mix.Config
 #
 #     import_config "#{Mix.env()}.exs"
 
-config :embeded_agent, 
+config :smart_pet_feeder_agent, 
   host: "31.13.251.48",
   port: 5672,
   virtual_host: "smart_pet_feeder",
