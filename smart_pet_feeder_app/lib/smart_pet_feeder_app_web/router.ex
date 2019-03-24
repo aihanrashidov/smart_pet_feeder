@@ -32,6 +32,7 @@ defmodule SmartPetFeederAppWeb.Router do
     post("/add_feeder", PageController, :add_feeder)
     post("/delete_feeder", PageController, :delete_feeder)
     post("/update_feeder", PageController, :update_feeder)
+    post("/update_feeder_status", PageController, :update_feeder_status)
     post("/get_feeders", PageController, :get_feeders)
   end
 

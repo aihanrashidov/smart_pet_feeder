@@ -41,15 +41,45 @@ defmodule SmartPetFeederAppWeb.PageController do
     json(conn, %{response: resp})
   end
 
+  def update_feeder_status(conn, params) do
+    IO.inspect(params)
+    feeder_id = params["feeder"]
+    top_water_sensor = params["top_water_sensor"]
+    bottom_water_sensor = params["bottom_water_sensor"]
+
+    {_status, resp} =
+      case bottom_water_sensor do
+        "NO" ->
+          DBManager.update(:feeder,
+            feeder_id: String.to_integer(feeder_id),
+            list: [water_status: "No water."]
+          )
+
+        "YES" ->
+          DBManager.update(:feeder,
+            feeder_id: String.to_integer(feeder_id),
+            list: [water_status: "Water level okay."]
+          )
+      end
+
+    json(conn, %{response: resp})
+  end
+
   def delete_feeder(conn, params) do
     username = params["username"]
     token = params["token"]
     feeder = params["feeder"]
     serial = params["serial"]
 
+    [_x, y, _z] = String.split(feeder, ":")
+    [x, _y] = String.split(y, "|")
+    feeder = String.to_integer(x)
+
+    IO.inspect(feeder)
+
     {_status, resp} =
       DBManager.delete(:feeder,
-        feeder_id: String.to_integer(String.at(feeder, 4))
+        feeder_id: feeder
       )
 
     json(conn, %{response: resp})

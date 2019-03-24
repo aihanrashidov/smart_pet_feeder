@@ -2,7 +2,7 @@ defmodule SmartPetFeederAppWeb.UserSocket do
   use Phoenix.Socket
 
   ## Channels
-  # channel "room:*", SmartPetFeederAppWeb.RoomChannel
+  channel("feeder:*", SmartPetFeederAppWeb.FeederChannel)
 
   # Socket params are passed from the client and can
   # be used to verify and authenticate a user. After
