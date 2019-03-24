@@ -1,0 +1,234 @@
+2019-03-23 17:40:28.110 [info] <0.42.0> Application lager started on node nonode@nohost
+2019-03-23 17:40:28.189 [info] <0.42.0> Application xmerl started on node nonode@nohost
+2019-03-23 17:40:28.235 [info] <0.42.0> Application jsx started on node nonode@nohost
+2019-03-23 17:40:28.400 [info] <0.42.0> Application ranch started on node nonode@nohost
+2019-03-23 17:40:28.456 [info] <0.42.0> Application ranch_proxy_protocol started on node nonode@nohost
+2019-03-23 17:40:28.529 [info] <0.42.0> Application recon started on node nonode@nohost
+2019-03-23 17:40:28.532 [info] <0.42.0> Application rabbit_common started on node nonode@nohost
+2019-03-23 17:40:28.754 [info] <0.42.0> Application amqp_client started on node nonode@nohost
+2019-03-23 17:40:28.757 [info] <0.42.0> Application amqp started on node nonode@nohost
+2019-03-23 17:40:30.971 [error] <0.344.0>@Elixir.RabbitMQCommunication:setup:111 CRASH REPORT Process <0.344.0> with 0 neighbours crashed with reason: no match of right hand value {error,unknown_host} in 'Elixir.RabbitMQCommunication':setup/0 line 111
+2019-03-23 17:42:37.282 [info] <0.42.0> Application lager started on node nonode@nohost
+2019-03-23 17:42:37.368 [info] <0.42.0> Application xmerl started on node nonode@nohost
+2019-03-23 17:42:37.412 [info] <0.42.0> Application jsx started on node nonode@nohost
+2019-03-23 17:42:37.567 [info] <0.42.0> Application ranch started on node nonode@nohost
+2019-03-23 17:42:37.645 [info] <0.42.0> Application ranch_proxy_protocol started on node nonode@nohost
+2019-03-23 17:42:37.700 [info] <0.42.0> Application recon started on node nonode@nohost
+2019-03-23 17:42:37.710 [info] <0.42.0> Application rabbit_common started on node nonode@nohost
+2019-03-23 17:42:37.891 [info] <0.42.0> Application amqp_client started on node nonode@nohost
+2019-03-23 17:42:37.894 [info] <0.42.0> Application amqp started on node nonode@nohost
+2019-03-23 17:42:40.317 [error] <0.280.0>@Elixir.RabbitMQCommunication:setup:111 CRASH REPORT Process <0.280.0> with 0 neighbours crashed with reason: no match of right hand value {error,unknown_host} in 'Elixir.RabbitMQCommunication':setup/0 line 111
+2019-03-23 17:42:40.323 [error] <0.279.0>@Elixir.RabbitMQCommunication:setup:111 Supervisor {<0.279.0>,'Elixir.SmartPetFeederAgent.Supervisor'} had child 'Elixir.RabbitMQCommunication' started with 'Elixir.RabbitMQCommunication':start_link([]) at undefined exit with reason no match of right hand value {error,unknown_host} in 'Elixir.RabbitMQCommunication':setup/0 line 111 in context start_error
+2019-03-23 17:42:40.331 [error] <0.278.0> Supervisor {<0.278.0>,'Elixir.Supervisor.Default'} had child 'Elixir.SmartPetFeederAgent.Supervisor' started with 'Elixir.SmartPetFeederAgent.Supervisor':start_link([]) at undefined exit with reason {shutdown,{failed_to_start_child,'Elixir.RabbitMQCommunication',{{badmatch,{error,unknown_host}},[{'Elixir.RabbitMQCommunication',setup,0,[{file,"lib/smart_pet_feeder_agent/rabbitmq_communication.ex"},{line,111}]},{'Elixir.RabbitMQCommunication',init,1,[{file,"lib/smart_pet_feeder_agent/rabbitmq_communication.ex"},{line,57}]},{gen_server,init_it,2,[{file,"gen_server.erl"},{line,374}]},{gen_server,init_it,6,[{file,"gen_server.erl"},{line,342}]},{proc_lib,init_p_do_apply,3,[{file,"proc_lib.er..."},...]}]}}} in context start_error
+2019-03-23 17:42:40.354 [error] <0.276.0> CRASH REPORT Process <0.276.0> with 0 neighbours exited with reason: {{shutdown,{failed_to_start_child,'Elixir.SmartPetFeederAgent.Supervisor',{shutdown,{failed_to_start_child,'Elixir.RabbitMQCommunication',{{badmatch,{error,unknown_host}},[{'Elixir.RabbitMQCommunication',setup,0,[{file,"lib/smart_pet_feeder_agent/rabbitmq_communication.ex"},{line,111}]},{'Elixir.RabbitMQCommunication',init,1,[{file,"lib/smart_pet_feeder_agent/rabbitmq_communication.ex"},{line,57}]},{gen_server,init_it,2,[{file,"gen_server.erl"},{line,374}]},{gen_server,init_it,6,[{file,"ge..."},...]},...]}}}}},...} in application_master:init/4 line 138
+2019-03-23 17:44:19.066 [info] <0.42.0> Application lager started on node nonode@nohost
+2019-03-23 17:44:19.266 [info] <0.42.0> Application xmerl started on node nonode@nohost
+2019-03-23 17:44:19.335 [info] <0.42.0> Application jsx started on node nonode@nohost
+2019-03-23 17:44:19.526 [info] <0.42.0> Application ranch started on node nonode@nohost
+2019-03-23 17:44:19.565 [info] <0.42.0> Application ranch_proxy_protocol started on node nonode@nohost
+2019-03-23 17:44:19.605 [info] <0.42.0> Application recon started on node nonode@nohost
+2019-03-23 17:44:19.609 [info] <0.42.0> Application rabbit_common started on node nonode@nohost
+2019-03-23 17:44:19.708 [info] <0.42.0> Application amqp_client started on node nonode@nohost
+2019-03-23 17:44:19.712 [info] <0.42.0> Application amqp started on node nonode@nohost
+2019-03-23 17:44:22.449 [info] <0.42.0> Application smart_pet_feeder_agent started on node nonode@nohost
+2019-03-23 17:50:59.728 [info] <0.42.0> Application lager started on node nonode@nohost
+2019-03-23 17:50:59.801 [info] <0.42.0> Application xmerl started on node nonode@nohost
+2019-03-23 17:50:59.847 [info] <0.42.0> Application jsx started on node nonode@nohost
+2019-03-23 17:50:59.970 [info] <0.42.0> Application ranch started on node nonode@nohost
+2019-03-23 17:51:00.006 [info] <0.42.0> Application ranch_proxy_protocol started on node nonode@nohost
+2019-03-23 17:51:00.046 [info] <0.42.0> Application recon started on node nonode@nohost
+2019-03-23 17:51:00.051 [info] <0.42.0> Application rabbit_common started on node nonode@nohost
+2019-03-23 17:51:00.182 [info] <0.42.0> Application amqp_client started on node nonode@nohost
+2019-03-23 17:51:00.185 [info] <0.42.0> Application amqp started on node nonode@nohost
+2019-03-23 17:51:03.202 [info] <0.42.0> Application smart_pet_feeder_agent started on node nonode@nohost
+2019-03-23 18:26:24.804 [info] <0.42.0> Application lager started on node nonode@nohost
+2019-03-23 18:26:24.892 [info] <0.42.0> Application xmerl started on node nonode@nohost
+2019-03-23 18:26:24.936 [info] <0.42.0> Application jsx started on node nonode@nohost
+2019-03-23 18:26:25.042 [info] <0.42.0> Application ranch started on node nonode@nohost
+2019-03-23 18:26:25.071 [info] <0.42.0> Application ranch_proxy_protocol started on node nonode@nohost
+2019-03-23 18:26:25.098 [info] <0.42.0> Application recon started on node nonode@nohost
+2019-03-23 18:26:25.103 [info] <0.42.0> Application rabbit_common started on node nonode@nohost
+2019-03-23 18:26:25.196 [info] <0.42.0> Application amqp_client started on node nonode@nohost
+2019-03-23 18:26:25.200 [info] <0.42.0> Application amqp started on node nonode@nohost
+2019-03-23 18:26:25.390 [error] <0.348.0> CRASH REPORT Process <0.348.0> with 0 neighbours crashed with reason: #{'__exception__' => true,'__struct__' => 'Elixir.ArgumentError',message => <<"The module RabbitMQCommunication was given as a child to a supervisor but it does not exist.">>} in 'Elixir.Supervisor':init_child/1 line 639
+2019-03-23 18:26:25.394 [error] <0.347.0> Supervisor {<0.347.0>,'Elixir.Supervisor.Default'} had child 'Elixir.SmartPetFeederAgent.Supervisor' started with 'Elixir.SmartPetFeederAgent.Supervisor':start_link([]) at undefined exit with reason #{'__exception__' => true,'__struct__' => 'Elixir.ArgumentError',message => <<"The module RabbitMQCommunication was given as a child to a supervisor but it does not exist.">>} in 'Elixir.Supervisor':init_child/1 line 639 in context start_error
+2019-03-23 18:26:25.415 [error] <0.345.0> CRASH REPORT Process <0.345.0> with 0 neighbours exited with reason: {{shutdown,{failed_to_start_child,'Elixir.SmartPetFeederAgent.Supervisor',{#{'__exception__' => true,'__struct__' => 'Elixir.ArgumentError',message => <<"The module RabbitMQCommunication was given as a child to a supervisor but it does not exist.">>},[{'Elixir.Supervisor',init_child,1,[{file,"lib/supervisor.ex"},{line,639}]},{'Elixir.Enum','-map/2-lists^map/1-0-',2,[{file,"lib/enum.ex"},{line,1314}]},{'Elixir.Supervisor',init,2,[{file,"lib/supervisor.ex"},{line,625}]},{supervisor,init,1,[{...},...]},...]}}},...} in application_master:init/4 line 138
+2019-03-23 18:27:28.818 [info] <0.42.0> Application lager started on node nonode@nohost
+2019-03-23 18:27:28.904 [info] <0.42.0> Application xmerl started on node nonode@nohost
+2019-03-23 18:27:28.945 [info] <0.42.0> Application jsx started on node nonode@nohost
+2019-03-23 18:27:29.194 [info] <0.42.0> Application ranch started on node nonode@nohost
+2019-03-23 18:27:29.277 [info] <0.42.0> Application ranch_proxy_protocol started on node nonode@nohost
+2019-03-23 18:27:29.329 [info] <0.42.0> Application recon started on node nonode@nohost
+2019-03-23 18:27:29.332 [info] <0.42.0> Application rabbit_common started on node nonode@nohost
+2019-03-23 18:27:29.535 [info] <0.42.0> Application amqp_client started on node nonode@nohost
+2019-03-23 18:27:29.545 [info] <0.42.0> Application amqp started on node nonode@nohost
+2019-03-23 18:27:32.375 [info] <0.42.0> Application smart_pet_feeder_agent started on node nonode@nohost
+2019-03-23 18:31:29.608 [info] <0.42.0> Application lager started on node nonode@nohost
+2019-03-23 18:31:29.759 [info] <0.42.0> Application xmerl started on node nonode@nohost
+2019-03-23 18:31:29.806 [info] <0.42.0> Application jsx started on node nonode@nohost
+2019-03-23 18:31:29.914 [info] <0.42.0> Application ranch started on node nonode@nohost
+2019-03-23 18:31:29.956 [info] <0.42.0> Application ranch_proxy_protocol started on node nonode@nohost
+2019-03-23 18:31:29.984 [info] <0.42.0> Application recon started on node nonode@nohost
+2019-03-23 18:31:29.989 [info] <0.42.0> Application rabbit_common started on node nonode@nohost
+2019-03-23 18:31:30.079 [info] <0.42.0> Application amqp_client started on node nonode@nohost
+2019-03-23 18:31:30.083 [info] <0.42.0> Application amqp started on node nonode@nohost
+2019-03-23 18:31:38.276 [info] <0.42.0> Application smart_pet_feeder_agent started on node nonode@nohost
+2019-03-23 18:34:06.154 [error] <0.279.0> Supervisor {<0.279.0>,'Elixir.SmartPetFeederAgent.Supervisor'} had child 'Elixir.RabbitMQCommunication' started with 'Elixir.RabbitMQCommunication':start_link([]) at <0.280.0> exit with reason normal in context child_terminated
+2019-03-23 18:34:35.897 [info] <0.42.0> Application lager started on node nonode@nohost
+2019-03-23 18:34:36.041 [info] <0.42.0> Application xmerl started on node nonode@nohost
+2019-03-23 18:34:36.081 [info] <0.42.0> Application jsx started on node nonode@nohost
+2019-03-23 18:34:36.189 [info] <0.42.0> Application ranch started on node nonode@nohost
+2019-03-23 18:34:36.218 [info] <0.42.0> Application ranch_proxy_protocol started on node nonode@nohost
+2019-03-23 18:34:36.246 [info] <0.42.0> Application recon started on node nonode@nohost
+2019-03-23 18:34:36.251 [info] <0.42.0> Application rabbit_common started on node nonode@nohost
+2019-03-23 18:34:36.341 [info] <0.42.0> Application amqp_client started on node nonode@nohost
+2019-03-23 18:34:36.345 [info] <0.42.0> Application amqp started on node nonode@nohost
+2019-03-23 18:34:39.256 [info] <0.42.0> Application smart_pet_feeder_agent started on node nonode@nohost
+2019-03-23 18:35:32.911 [error] <0.279.0> Supervisor {<0.279.0>,'Elixir.SmartPetFeederAgent.Supervisor'} had child 'Elixir.RabbitMQCommunication' started with 'Elixir.RabbitMQCommunication':start_link([]) at <0.280.0> exit with reason normal in context child_terminated
+2019-03-23 18:35:57.574 [info] <0.42.0> Application lager started on node nonode@nohost
+2019-03-23 18:35:57.663 [info] <0.42.0> Application xmerl started on node nonode@nohost
+2019-03-23 18:35:57.711 [info] <0.42.0> Application jsx started on node nonode@nohost
+2019-03-23 18:35:57.826 [info] <0.42.0> Application ranch started on node nonode@nohost
+2019-03-23 18:35:57.865 [info] <0.42.0> Application ranch_proxy_protocol started on node nonode@nohost
+2019-03-23 18:35:57.892 [info] <0.42.0> Application recon started on node nonode@nohost
+2019-03-23 18:35:57.897 [info] <0.42.0> Application rabbit_common started on node nonode@nohost
+2019-03-23 18:35:57.995 [info] <0.42.0> Application amqp_client started on node nonode@nohost
+2019-03-23 18:35:58.000 [info] <0.42.0> Application amqp started on node nonode@nohost
+2019-03-23 18:36:01.358 [info] <0.42.0> Application smart_pet_feeder_agent started on node nonode@nohost
+2019-03-23 18:36:30.223 [info] <0.42.0> Application lager started on node nonode@nohost
+2019-03-23 18:36:30.424 [info] <0.42.0> Application xmerl started on node nonode@nohost
+2019-03-23 18:36:30.500 [info] <0.42.0> Application jsx started on node nonode@nohost
+2019-03-23 18:36:30.608 [info] <0.42.0> Application ranch started on node nonode@nohost
+2019-03-23 18:36:30.646 [info] <0.42.0> Application ranch_proxy_protocol started on node nonode@nohost
+2019-03-23 18:36:30.679 [info] <0.42.0> Application recon started on node nonode@nohost
+2019-03-23 18:36:30.684 [info] <0.42.0> Application rabbit_common started on node nonode@nohost
+2019-03-23 18:36:30.774 [info] <0.42.0> Application amqp_client started on node nonode@nohost
+2019-03-23 18:36:30.778 [info] <0.42.0> Application amqp started on node nonode@nohost
+2019-03-23 18:36:33.614 [info] <0.42.0> Application smart_pet_feeder_agent started on node nonode@nohost
+2019-03-23 18:51:34.401 [info] <0.42.0> Application lager started on node nonode@nohost
+2019-03-23 18:51:34.487 [info] <0.42.0> Application xmerl started on node nonode@nohost
+2019-03-23 18:51:34.525 [info] <0.42.0> Application jsx started on node nonode@nohost
+2019-03-23 18:51:34.623 [info] <0.42.0> Application ranch started on node nonode@nohost
+2019-03-23 18:51:34.655 [info] <0.42.0> Application ranch_proxy_protocol started on node nonode@nohost
+2019-03-23 18:51:34.697 [info] <0.42.0> Application recon started on node nonode@nohost
+2019-03-23 18:51:34.701 [info] <0.42.0> Application rabbit_common started on node nonode@nohost
+2019-03-23 18:51:34.815 [info] <0.42.0> Application amqp_client started on node nonode@nohost
+2019-03-23 18:51:34.819 [info] <0.42.0> Application amqp started on node nonode@nohost
+2019-03-23 18:51:38.677 [info] <0.42.0> Application smart_pet_feeder_agent started on node nonode@nohost
+2019-03-23 18:52:54.467 [info] <0.42.0> Application lager started on node nonode@nohost
+2019-03-23 18:52:54.572 [info] <0.42.0> Application xmerl started on node nonode@nohost
+2019-03-23 18:52:54.617 [info] <0.42.0> Application jsx started on node nonode@nohost
+2019-03-23 18:52:54.739 [info] <0.42.0> Application ranch started on node nonode@nohost
+2019-03-23 18:52:54.767 [info] <0.42.0> Application ranch_proxy_protocol started on node nonode@nohost
+2019-03-23 18:52:54.804 [info] <0.42.0> Application recon started on node nonode@nohost
+2019-03-23 18:52:54.808 [info] <0.42.0> Application rabbit_common started on node nonode@nohost
+2019-03-23 18:52:54.896 [info] <0.42.0> Application amqp_client started on node nonode@nohost
+2019-03-23 18:52:54.900 [info] <0.42.0> Application amqp started on node nonode@nohost
+2019-03-23 18:52:58.080 [info] <0.42.0> Application smart_pet_feeder_agent started on node nonode@nohost
+2019-03-23 18:53:46.374 [info] <0.42.0> Application lager started on node nonode@nohost
+2019-03-23 18:53:46.521 [info] <0.42.0> Application xmerl started on node nonode@nohost
+2019-03-23 18:53:46.567 [info] <0.42.0> Application jsx started on node nonode@nohost
+2019-03-23 18:53:46.688 [info] <0.42.0> Application ranch started on node nonode@nohost
+2019-03-23 18:53:46.717 [info] <0.42.0> Application ranch_proxy_protocol started on node nonode@nohost
+2019-03-23 18:53:46.754 [info] <0.42.0> Application recon started on node nonode@nohost
+2019-03-23 18:53:46.757 [info] <0.42.0> Application rabbit_common started on node nonode@nohost
+2019-03-23 18:53:46.847 [info] <0.42.0> Application amqp_client started on node nonode@nohost
+2019-03-23 18:53:46.851 [info] <0.42.0> Application amqp started on node nonode@nohost
+2019-03-23 18:53:50.045 [info] <0.42.0> Application smart_pet_feeder_agent started on node nonode@nohost
+2019-03-23 18:57:42.611 [info] <0.42.0> Application lager started on node nonode@nohost
+2019-03-23 18:57:42.817 [info] <0.42.0> Application xmerl started on node nonode@nohost
+2019-03-23 18:57:42.854 [info] <0.42.0> Application jsx started on node nonode@nohost
+2019-03-23 18:57:42.952 [info] <0.42.0> Application ranch started on node nonode@nohost
+2019-03-23 18:57:42.986 [info] <0.42.0> Application ranch_proxy_protocol started on node nonode@nohost
+2019-03-23 18:57:43.026 [info] <0.42.0> Application recon started on node nonode@nohost
+2019-03-23 18:57:43.028 [info] <0.42.0> Application rabbit_common started on node nonode@nohost
+2019-03-23 18:57:43.135 [info] <0.42.0> Application amqp_client started on node nonode@nohost
+2019-03-23 18:57:43.139 [info] <0.42.0> Application amqp started on node nonode@nohost
+2019-03-23 18:58:21.093 [info] <0.42.0> Application lager started on node nonode@nohost
+2019-03-23 18:58:21.166 [info] <0.42.0> Application xmerl started on node nonode@nohost
+2019-03-23 18:58:21.212 [info] <0.42.0> Application jsx started on node nonode@nohost
+2019-03-23 18:58:21.315 [info] <0.42.0> Application ranch started on node nonode@nohost
+2019-03-23 18:58:21.355 [info] <0.42.0> Application ranch_proxy_protocol started on node nonode@nohost
+2019-03-23 18:58:21.386 [info] <0.42.0> Application recon started on node nonode@nohost
+2019-03-23 18:58:21.388 [info] <0.42.0> Application rabbit_common started on node nonode@nohost
+2019-03-23 18:58:21.526 [info] <0.42.0> Application amqp_client started on node nonode@nohost
+2019-03-23 18:58:21.530 [info] <0.42.0> Application amqp started on node nonode@nohost
+2019-03-23 18:58:24.372 [error] <0.280.0> CRASH REPORT Process <0.280.0> with 0 neighbours exited with reason: {{shutdown,{server_initiated_close,406,<<"PRECONDITION_FAILED - inequivalent arg 'type' for exchange '0000000037f5fd8a' in vhost 'smartpetfeeder': received 'topic' but current is 'direct'">>}},{gen_server,call,[<0.295.0>,{call,{'exchange.declare',0,<<"0000000037f5fd8a">>,<<"topic">>,false,false,false,false,false,[]},none,<0.280.0>},60000]}} in gen_server:call/3 line 223
+2019-03-23 18:58:24.383 [error] <0.279.0> Supervisor {<0.279.0>,'Elixir.SmartPetFeederAgent.Supervisor'} had child 'Elixir.RabbitMQCommunication' started with 'Elixir.RabbitMQCommunication':start_link([]) at undefined exit with reason {{shutdown,{server_initiated_close,406,<<"PRECONDITION_FAILED - inequivalent arg 'type' for exchange '0000000037f5fd8a' in vhost 'smartpetfeeder': received 'topic' but current is 'direct'">>}},{gen_server,call,[<0.295.0>,{call,{'exchange.declare',0,<<"0000000037f5fd8a">>,<<"topic">>,false,false,false,false,false,[]},none,<0.280.0>},60000]}} in context start_error
+2019-03-23 18:58:24.389 [error] <0.278.0> Supervisor {<0.278.0>,'Elixir.Supervisor.Default'} had child 'Elixir.SmartPetFeederAgent.Supervisor' started with 'Elixir.SmartPetFeederAgent.Supervisor':start_link([]) at undefined exit with reason {shutdown,{failed_to_start_child,'Elixir.RabbitMQCommunication',{{shutdown,{server_initiated_close,406,<<"PRECONDITION_FAILED - inequivalent arg 'type' for exchange '0000000037f5fd8a' in vhost 'smartpetfeeder': received 'topic' but current is 'direct'">>}},{gen_server,call,[<0.295.0>,{call,{'exchange.declare',0,<<"0000000037f5fd8a">>,<<"topic">>,false,false,false,false,false,[]},none,<0.280.0>},60000]}}}} in context start_error
+2019-03-23 18:59:17.251 [info] <0.42.0> Application lager started on node nonode@nohost
+2019-03-23 18:59:17.338 [info] <0.42.0> Application xmerl started on node nonode@nohost
+2019-03-23 18:59:17.374 [info] <0.42.0> Application jsx started on node nonode@nohost
+2019-03-23 18:59:17.496 [info] <0.42.0> Application ranch started on node nonode@nohost
+2019-03-23 18:59:17.558 [info] <0.42.0> Application ranch_proxy_protocol started on node nonode@nohost
+2019-03-23 18:59:17.619 [info] <0.42.0> Application recon started on node nonode@nohost
+2019-03-23 18:59:17.627 [info] <0.42.0> Application rabbit_common started on node nonode@nohost
+2019-03-23 18:59:17.827 [info] <0.42.0> Application amqp_client started on node nonode@nohost
+2019-03-23 18:59:17.830 [info] <0.42.0> Application amqp started on node nonode@nohost
+2019-03-23 18:59:21.378 [info] <0.42.0> Application smart_pet_feeder_agent started on node nonode@nohost
+2019-03-23 19:01:01.074 [info] <0.42.0> Application lager started on node nonode@nohost
+2019-03-23 19:01:01.147 [info] <0.42.0> Application xmerl started on node nonode@nohost
+2019-03-23 19:01:01.191 [info] <0.42.0> Application jsx started on node nonode@nohost
+2019-03-23 19:01:01.295 [info] <0.42.0> Application ranch started on node nonode@nohost
+2019-03-23 19:01:01.335 [info] <0.42.0> Application ranch_proxy_protocol started on node nonode@nohost
+2019-03-23 19:01:01.367 [info] <0.42.0> Application recon started on node nonode@nohost
+2019-03-23 19:01:01.371 [info] <0.42.0> Application rabbit_common started on node nonode@nohost
+2019-03-23 19:01:01.475 [info] <0.42.0> Application amqp_client started on node nonode@nohost
+2019-03-23 19:01:01.479 [info] <0.42.0> Application amqp started on node nonode@nohost
+2019-03-23 19:01:05.842 [info] <0.42.0> Application smart_pet_feeder_agent started on node nonode@nohost
+2019-03-23 19:06:22.503 [info] <0.42.0> Application lager started on node nonode@nohost
+2019-03-23 19:06:22.620 [info] <0.42.0> Application xmerl started on node nonode@nohost
+2019-03-23 19:06:22.666 [info] <0.42.0> Application jsx started on node nonode@nohost
+2019-03-23 19:06:22.775 [info] <0.42.0> Application ranch started on node nonode@nohost
+2019-03-23 19:06:22.815 [info] <0.42.0> Application ranch_proxy_protocol started on node nonode@nohost
+2019-03-23 19:06:22.846 [info] <0.42.0> Application recon started on node nonode@nohost
+2019-03-23 19:06:22.851 [info] <0.42.0> Application rabbit_common started on node nonode@nohost
+2019-03-23 19:06:22.955 [info] <0.42.0> Application amqp_client started on node nonode@nohost
+2019-03-23 19:06:22.959 [info] <0.42.0> Application amqp started on node nonode@nohost
+2019-03-23 19:06:25.856 [info] <0.42.0> Application smart_pet_feeder_agent started on node nonode@nohost
+2019-03-23 19:09:56.794 [info] <0.42.0> Application lager started on node nonode@nohost
+2019-03-23 19:09:56.899 [info] <0.42.0> Application xmerl started on node nonode@nohost
+2019-03-23 19:09:56.943 [info] <0.42.0> Application jsx started on node nonode@nohost
+2019-03-23 19:09:57.044 [info] <0.42.0> Application ranch started on node nonode@nohost
+2019-03-23 19:09:57.086 [info] <0.42.0> Application ranch_proxy_protocol started on node nonode@nohost
+2019-03-23 19:09:57.114 [info] <0.42.0> Application recon started on node nonode@nohost
+2019-03-23 19:09:57.118 [info] <0.42.0> Application rabbit_common started on node nonode@nohost
+2019-03-23 19:09:57.208 [info] <0.42.0> Application amqp_client started on node nonode@nohost
+2019-03-23 19:09:57.212 [info] <0.42.0> Application amqp started on node nonode@nohost
+2019-03-23 19:10:00.449 [info] <0.42.0> Application smart_pet_feeder_agent started on node nonode@nohost
+2019-03-24 10:34:45.958 [info] <0.42.0> Application lager started on node nonode@nohost
+2019-03-24 10:34:46.035 [info] <0.42.0> Application xmerl started on node nonode@nohost
+2019-03-24 10:34:46.116 [info] <0.42.0> Application jsx started on node nonode@nohost
+2019-03-24 10:34:46.382 [info] <0.42.0> Application ranch started on node nonode@nohost
+2019-03-24 10:34:46.432 [info] <0.42.0> Application ranch_proxy_protocol started on node nonode@nohost
+2019-03-24 10:34:46.462 [info] <0.42.0> Application recon started on node nonode@nohost
+2019-03-24 10:34:46.466 [info] <0.42.0> Application rabbit_common started on node nonode@nohost
+2019-03-24 10:34:46.575 [info] <0.42.0> Application amqp_client started on node nonode@nohost
+2019-03-24 10:34:46.579 [info] <0.42.0> Application amqp started on node nonode@nohost
+2019-03-24 10:34:50.081 [info] <0.42.0> Application smart_pet_feeder_agent started on node nonode@nohost
+2019-03-24 10:46:50.003 [error] <0.343.0> Supervisor {<0.343.0>,'Elixir.SmartPetFeederAgent.Supervisor'} had child 'Elixir.RabbitMQCommunication' started with 'Elixir.RabbitMQCommunication':start_link([]) at <0.344.0> exit with reason normal in context child_terminated
+2019-03-24 10:46:50.081 [warning] <0.350.0> Connection (<0.350.0>) closing: received hard error {'connection.close',320,<<"CONNECTION_FORCED - vhost 'smartpetfeeder' is deleted">>,0,0} from server
+2019-03-24 10:46:50.364 [error] <0.372.0>@Elixir.RabbitMQCommunication:connection_setup:378 CRASH REPORT Process <0.372.0> with 0 neighbours crashed with reason: no match of right hand value {error,not_allowed} in 'Elixir.RabbitMQCommunication':connection_setup/0 line 378
+2019-03-24 10:46:50.373 [error] <0.343.0>@Elixir.RabbitMQCommunication:connection_setup:378 Supervisor {<0.343.0>,'Elixir.SmartPetFeederAgent.Supervisor'} had child 'Elixir.RabbitMQCommunication' started with 'Elixir.RabbitMQCommunication':start_link([]) at <0.344.0> exit with reason no match of right hand value {error,not_allowed} in 'Elixir.RabbitMQCommunication':connection_setup/0 line 378 in context start_error
+2019-03-24 10:46:51.008 [warning] <0.315.0> lager_error_logger_h dropped 21 messages in the last second that exceeded the limit of 50 messages/sec
+2019-03-24 10:46:51.087 [error] <0.403.0>@Elixir.RabbitMQCommunication:connection_setup:378 CRASH REPORT Process <0.403.0> with 0 neighbours crashed with reason: no match of right hand value {error,not_allowed} in 'Elixir.RabbitMQCommunication':connection_setup/0 line 378
+2019-03-24 10:46:51.096 [error] <0.402.0>@Elixir.RabbitMQCommunication:connection_setup:378 Supervisor {<0.402.0>,'Elixir.SmartPetFeederAgent.Supervisor'} had child 'Elixir.RabbitMQCommunication' started with 'Elixir.RabbitMQCommunication':start_link([]) at undefined exit with reason no match of right hand value {error,not_allowed} in 'Elixir.RabbitMQCommunication':connection_setup/0 line 378 in context start_error
+2019-03-24 10:46:51.117 [error] <0.342.0> Supervisor {<0.342.0>,'Elixir.Supervisor.Default'} had child 'Elixir.SmartPetFeederAgent.Supervisor' started with 'Elixir.SmartPetFeederAgent.Supervisor':start_link([]) at <0.343.0> exit with reason {shutdown,{failed_to_start_child,'Elixir.RabbitMQCommunication',{{badmatch,{error,not_allowed}},[{'Elixir.RabbitMQCommunication',connection_setup,0,[{file,"lib/smart_pet_feeder_agent/rabbitmq_communication.ex"},{line,378}]},{'Elixir.RabbitMQCommunication',init,1,[{file,"lib/smart_pet_feeder_agent/rabbitmq_communication.ex"},{line,187}]},{gen_server,init_it,2,[{file,"gen_server.erl"},{line,374}]},{gen_server,init_it,6,[{file,"gen_server.erl"},{line,342}]},{proc_lib,init_p_do_apply,3,[{file,"..."},...]}]}}} in context start_error
+2019-03-24 10:46:51.425 [error] <0.414.0>@Elixir.RabbitMQCommunication:connection_setup:378 CRASH REPORT Process <0.414.0> with 0 neighbours crashed with reason: no match of right hand value {error,not_allowed} in 'Elixir.RabbitMQCommunication':connection_setup/0 line 378
+2019-03-24 10:46:51.428 [error] <0.413.0>@Elixir.RabbitMQCommunication:connection_setup:378 Supervisor {<0.413.0>,'Elixir.SmartPetFeederAgent.Supervisor'} had child 'Elixir.RabbitMQCommunication' started with 'Elixir.RabbitMQCommunication':start_link([]) at undefined exit with reason no match of right hand value {error,not_allowed} in 'Elixir.RabbitMQCommunication':connection_setup/0 line 378 in context start_error
+2019-03-24 10:46:51.456 [error] <0.342.0> Supervisor {<0.342.0>,'Elixir.Supervisor.Default'} had child 'Elixir.SmartPetFeederAgent.Supervisor' started with 'Elixir.SmartPetFeederAgent.Supervisor':start_link([]) at {restarting,<0.343.0>} exit with reason {shutdown,{failed_to_start_child,'Elixir.RabbitMQCommunication',{{badmatch,{error,not_allowed}},[{'Elixir.RabbitMQCommunication',connection_setup,0,[{file,"lib/smart_pet_feeder_agent/rabbitmq_communication.ex"},{line,378}]},{'Elixir.RabbitMQCommunication',init,1,[{file,"lib/smart_pet_feeder_agent/rabbitmq_communication.ex"},{line,187}]},{gen_server,init_it,2,[{file,"gen_server.erl"},{line,374}]},{gen_server,init_it,6,[{file,"gen_server.erl"},{line,342}]},{proc_lib,init_p_do_apply,3,[{file,"..."},...]}]}}} in context start_error
+2019-03-24 10:46:51.745 [error] <0.425.0>@Elixir.RabbitMQCommunication:connection_setup:378 CRASH REPORT Process <0.425.0> with 0 neighbours crashed with reason: no match of right hand value {error,not_allowed} in 'Elixir.RabbitMQCommunication':connection_setup/0 line 378
+2019-03-24 10:46:51.751 [error] <0.424.0>@Elixir.RabbitMQCommunication:connection_setup:378 Supervisor {<0.424.0>,'Elixir.SmartPetFeederAgent.Supervisor'} had child 'Elixir.RabbitMQCommunication' started with 'Elixir.RabbitMQCommunication':start_link([]) at undefined exit with reason no match of right hand value {error,not_allowed} in 'Elixir.RabbitMQCommunication':connection_setup/0 line 378 in context start_error
+2019-03-24 10:46:51.768 [error] <0.342.0> Supervisor {<0.342.0>,'Elixir.Supervisor.Default'} had child 'Elixir.SmartPetFeederAgent.Supervisor' started with 'Elixir.SmartPetFeederAgent.Supervisor':start_link([]) at {restarting,<0.343.0>} exit with reason {shutdown,{failed_to_start_child,'Elixir.RabbitMQCommunication',{{badmatch,{error,not_allowed}},[{'Elixir.RabbitMQCommunication',connection_setup,0,[{file,"lib/smart_pet_feeder_agent/rabbitmq_communication.ex"},{line,378}]},{'Elixir.RabbitMQCommunication',init,1,[{file,"lib/smart_pet_feeder_agent/rabbitmq_communication.ex"},{line,187}]},{gen_server,init_it,2,[{file,"gen_server.erl"},{line,374}]},{gen_server,init_it,6,[{file,"gen_server.erl"},{line,342}]},{proc_lib,init_p_do_apply,3,[{file,"..."},...]}]}}} in context start_error
+2019-03-24 10:46:51.771 [error] <0.342.0> Supervisor {<0.342.0>,'Elixir.Supervisor.Default'} had child 'Elixir.SmartPetFeederAgent.Supervisor' started with 'Elixir.SmartPetFeederAgent.Supervisor':start_link([]) at {restarting,<0.343.0>} exit with reason reached_max_restart_intensity in context shutdown
+2019-03-24 10:46:51.774 [info] <0.42.0> Application smart_pet_feeder_agent exited with reason: shutdown
+2019-03-24 10:47:36.566 [info] <0.42.0> Application lager started on node nonode@nohost
+2019-03-24 10:47:36.642 [info] <0.42.0> Application xmerl started on node nonode@nohost
+2019-03-24 10:47:36.688 [info] <0.42.0> Application jsx started on node nonode@nohost
+2019-03-24 10:47:36.822 [info] <0.42.0> Application ranch started on node nonode@nohost
+2019-03-24 10:47:36.849 [info] <0.42.0> Application ranch_proxy_protocol started on node nonode@nohost
+2019-03-24 10:47:36.881 [info] <0.42.0> Application recon started on node nonode@nohost
+2019-03-24 10:47:36.884 [info] <0.42.0> Application rabbit_common started on node nonode@nohost
+2019-03-24 10:47:36.977 [info] <0.42.0> Application amqp_client started on node nonode@nohost
+2019-03-24 10:47:36.981 [info] <0.42.0> Application amqp started on node nonode@nohost
+2019-03-24 10:47:39.809 [info] <0.42.0> Application smart_pet_feeder_agent started on node nonode@nohost

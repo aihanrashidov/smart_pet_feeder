@@ -30,11 +30,6 @@ use Mix.Config
 #     import_config "#{Mix.env()}.exs"
 
 config :smart_pet_feeder_agent,
-  host: "31.13.251.48",
-  port: 5672,
-  virtual_host: "smartpetfeeder",
-  username: "ayhan",
-  password: "rich12ard",
   internet_check_time_delay: 2000,
   message_check: 1000,
   serial_number: :os.cmd(:"cat /proc/cpuinfo | grep Serial | cut -d ' ' -f 2") |> List.to_string() |> String.split("\n") |> Enum.at(0)
