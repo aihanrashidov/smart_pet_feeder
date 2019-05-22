@@ -7,10 +7,9 @@ defmodule SmartPetFeederAgent.Supervisor do
 
   def init(:ok) do
     children = [
-      # RabbitMQCommunication,
-      # MessageHandler
-      SocketCommunication,
-      WaterSensors
+      # WaterSensors,
+      # SocketCommunication
+      # PressureSensor
     ]
 
     Supervisor.init(children, strategy: :one_for_one)

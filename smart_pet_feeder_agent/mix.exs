@@ -24,14 +24,14 @@ defmodule SmartPetFeederAgent.MixProject do
     [
       # {:dep_from_hexpm, "~> 0.3.0"},
       # {:dep_from_git, git: "https://github.com/elixir-lang/my_dep.git", tag: "0.1.0"},
-      {:circuits_uart, "~> 1.2"},
       {:circuits_gpio, "~> 0.1"},
       {:circuits_spi, "~> 0.1"},
       {:poison, "~> 4.0", override: true},
       {:httpoison, "~> 1.5"},
       {:phoenix_gen_socket_client, "~> 2.1.1"},
       {:websocket_client, "~> 1.2"},
-      {:websockex, "~> 0.4.0"}
+      {:websockex, "~> 0.4.0"},
+      {:micro_timer, "~> 0.1.0"}
     ]
   end
 end
