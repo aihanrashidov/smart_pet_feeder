@@ -27,9 +27,11 @@ defmodule SmartPetFeederAgent.MixProject do
       {:circuits_uart, "~> 1.2"},
       {:circuits_gpio, "~> 0.1"},
       {:circuits_spi, "~> 0.1"},
-      {:amqp, "~> 1.1"},
-      {:poison, "~> 4.0"},
-      {:httpoison, "~> 1.5"}
+      {:poison, "~> 4.0", override: true},
+      {:httpoison, "~> 1.5"},
+      {:phoenix_gen_socket_client, "~> 2.1.1"},
+      {:websocket_client, "~> 1.2"},
+      {:websockex, "~> 0.4.0"}
     ]
   end
 end

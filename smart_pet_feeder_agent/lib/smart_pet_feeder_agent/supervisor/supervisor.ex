@@ -7,8 +7,9 @@ defmodule SmartPetFeederAgent.Supervisor do
 
   def init(:ok) do
     children = [
-      RabbitMQCommunication,
+      # RabbitMQCommunication,
       # MessageHandler
+      SocketCommunication,
       WaterSensors
     ]
 

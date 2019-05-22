@@ -15,7 +15,6 @@ defmodule WaterSensors do
 
         top_water_check()
         bottom_water_check()
-        send_data_to_app()
 
         state =
             %{
@@ -68,13 +67,6 @@ defmodule WaterSensors do
         {:noreply, %{state | sensors_data: new_sensors_data}}
     end
 
-    def handle_info(:send_data_to_app, state) do
-        RabbitMQCommunication.send_message(Poison.encode!(state.sensors_data))
-
-        send_data_to_app()
-        {:noreply, state}
-    end
-
     ## Private functions
 
     defp gpio_init() do
@@ -90,7 +82,6 @@ defmodule WaterSensors do
 
     end
 
-    defp top_water_check(), do: Process.send_after(self(), :top_water_check, 5000)
-    defp bottom_water_check(), do: Process.send_after(self(), :bottom_water_check, 5000)
-    defp send_data_to_app(), do: Process.send_after(self(), :send_data_to_app, 5000)
+    defp top_water_check(), do: Process.send_after(self(), :top_water_check, 1000)
+    defp bottom_water_check(), do: Process.send_after(self(), :bottom_water_check, 1000)
 end

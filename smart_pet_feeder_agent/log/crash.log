@@ -1,0 +1,295 @@
+2019-03-23 17:40:31 =CRASH REPORT====
+  crasher:
+    initial call: Elixir.RabbitMQCommunication:init/1
+    pid: <0.344.0>
+    registered_name: []
+    exception error: {{badmatch,{error,unknown_host}},[{'Elixir.RabbitMQCommunication',setup,0,[{file,"lib/smart_pet_feeder_agent/rabbitmq_communication.ex"},{line,111}]},{'Elixir.RabbitMQCommunication',init,1,[{file,"lib/smart_pet_feeder_agent/rabbitmq_communication.ex"},{line,57}]},{gen_server,init_it,2,[{file,"gen_server.erl"},{line,374}]},{gen_server,init_it,6,[{file,"gen_server.erl"},{line,342}]},{proc_lib,init_p_do_apply,3,[{file,"proc_lib.erl"},{line,249}]}]}
+    ancestors: [<0.343.0>,<0.342.0>,<0.341.0>]
+    message_queue_len: 0
+    messages: []
+    links: [<0.343.0>]
+    dictionary: [{gen_server_call_timeout,60000}]
+    trap_exit: false
+    status: running
+    heap_size: 2586
+    stack_size: 27
+    reductions: 8607
+  neighbours:
+2019-03-23 17:40:31 =SUPERVISOR REPORT====
+     Supervisor: {<0.343.0>,'Elixir.SmartPetFeederAgent.Supervisor'}
+     Context:    start_error
+     Reason:     {{badmatch,{error,unknown_host}},[{'Elixir.RabbitMQCommunication',setup,0,[{file,"lib/smart_pet_feeder_agent/rabbitmq_communication.ex"},{line,111}]},{'Elixir.RabbitMQCommunication',init,1,[{file,"lib/smart_pet_feeder_agent/rabbitmq_communication.ex"},{line,57}]},{gen_server,init_it,2,[{file,"gen_server.erl"},{line,374}]},{gen_server,init_it,6,[{file,"gen_server.erl"},{line,342}]},{proc_lib,init_p_do_apply,3,[{file,"proc_lib.erl"},{line,249}]}]}
+     Offender:   [{pid,undefined},{id,'Elixir.RabbitMQCommunication'},{mfargs,{'Elixir.RabbitMQCommunication',start_link,[[]]}},{restart_type,permanent},{shutdown,5000},{child_type,worker}]
+
+2019-03-23 17:40:31 =SUPERVISOR REPORT====
+     Supervisor: {<0.342.0>,'Elixir.Supervisor.Default'}
+     Context:    start_error
+     Reason:     {shutdown,{failed_to_start_child,'Elixir.RabbitMQCommunication',{{badmatch,{error,unknown_host}},[{'Elixir.RabbitMQCommunication',setup,0,[{file,"lib/smart_pet_feeder_agent/rabbitmq_communication.ex"},{line,111}]},{'Elixir.RabbitMQCommunication',init,1,[{file,"lib/smart_pet_feeder_agent/rabbitmq_communication.ex"},{line,57}]},{gen_server,init_it,2,[{file,"gen_server.erl"},{line,374}]},{gen_server,init_it,6,[{file,"gen_server.erl"},{line,342}]},{proc_lib,init_p_do_apply,3,[{file,"proc_lib.erl"},{line,249}]}]}}}
+     Offender:   [{pid,undefined},{id,'Elixir.SmartPetFeederAgent.Supervisor'},{mfargs,{'Elixir.SmartPetFeederAgent.Supervisor',start_link,[[]]}},{restart_type,permanent},{shutdown,infinity},{child_type,supervisor}]
+
+2019-03-23 17:40:31 =CRASH REPORT====
+  crasher:
+    initial call: application_master:init/4
+    pid: <0.340.0>
+    registered_name: []
+    exception exit: {{{shutdown,{failed_to_start_child,'Elixir.SmartPetFeederAgent.Supervisor',{shutdown,{failed_to_start_child,'Elixir.RabbitMQCommunication',{{badmatch,{error,unknown_host}},[{'Elixir.RabbitMQCommunication',setup,0,[{file,"lib/smart_pet_feeder_agent/rabbitmq_communication.ex"},{line,111}]},{'Elixir.RabbitMQCommunication',init,1,[{file,"lib/smart_pet_feeder_agent/rabbitmq_communication.ex"},{line,57}]},{gen_server,init_it,2,[{file,"gen_server.erl"},{line,374}]},{gen_server,init_it,6,[{file,"gen_server.erl"},{line,342}]},{proc_lib,init_p_do_apply,3,[{file,"proc_lib.erl"},{line,249}]}]}}}}},{'Elixir.SmartPetFeederAgent.Application',start,[normal,[]]}},[{application_master,init,4,[{file,"application_master.erl"},{line,138}]},{proc_lib,init_p_do_apply,3,[{file,"proc_lib.erl"},{line,249}]}]}
+    ancestors: [<0.339.0>]
+    message_queue_len: 1
+    messages: [{'EXIT',<0.341.0>,normal}]
+    links: [<0.339.0>,<0.42.0>]
+    dictionary: []
+    trap_exit: true
+    status: running
+    heap_size: 987
+    stack_size: 27
+    reductions: 238
+  neighbours:
+2019-03-23 17:42:40 =CRASH REPORT====
+  crasher:
+    initial call: Elixir.RabbitMQCommunication:init/1
+    pid: <0.280.0>
+    registered_name: []
+    exception error: {{badmatch,{error,unknown_host}},[{'Elixir.RabbitMQCommunication',setup,0,[{file,"lib/smart_pet_feeder_agent/rabbitmq_communication.ex"},{line,111}]},{'Elixir.RabbitMQCommunication',init,1,[{file,"lib/smart_pet_feeder_agent/rabbitmq_communication.ex"},{line,57}]},{gen_server,init_it,2,[{file,"gen_server.erl"},{line,374}]},{gen_server,init_it,6,[{file,"gen_server.erl"},{line,342}]},{proc_lib,init_p_do_apply,3,[{file,"proc_lib.erl"},{line,249}]}]}
+    ancestors: [<0.279.0>,<0.278.0>,<0.277.0>]
+    message_queue_len: 0
+    messages: []
+    links: [<0.279.0>]
+    dictionary: [{gen_server_call_timeout,60000}]
+    trap_exit: false
+    status: running
+    heap_size: 2586
+    stack_size: 27
+    reductions: 8633
+  neighbours:
+2019-03-23 17:42:40 =SUPERVISOR REPORT====
+     Supervisor: {<0.279.0>,'Elixir.SmartPetFeederAgent.Supervisor'}
+     Context:    start_error
+     Reason:     {{badmatch,{error,unknown_host}},[{'Elixir.RabbitMQCommunication',setup,0,[{file,"lib/smart_pet_feeder_agent/rabbitmq_communication.ex"},{line,111}]},{'Elixir.RabbitMQCommunication',init,1,[{file,"lib/smart_pet_feeder_agent/rabbitmq_communication.ex"},{line,57}]},{gen_server,init_it,2,[{file,"gen_server.erl"},{line,374}]},{gen_server,init_it,6,[{file,"gen_server.erl"},{line,342}]},{proc_lib,init_p_do_apply,3,[{file,"proc_lib.erl"},{line,249}]}]}
+     Offender:   [{pid,undefined},{id,'Elixir.RabbitMQCommunication'},{mfargs,{'Elixir.RabbitMQCommunication',start_link,[[]]}},{restart_type,permanent},{shutdown,5000},{child_type,worker}]
+
+2019-03-23 17:42:40 =SUPERVISOR REPORT====
+     Supervisor: {<0.278.0>,'Elixir.Supervisor.Default'}
+     Context:    start_error
+     Reason:     {shutdown,{failed_to_start_child,'Elixir.RabbitMQCommunication',{{badmatch,{error,unknown_host}},[{'Elixir.RabbitMQCommunication',setup,0,[{file,"lib/smart_pet_feeder_agent/rabbitmq_communication.ex"},{line,111}]},{'Elixir.RabbitMQCommunication',init,1,[{file,"lib/smart_pet_feeder_agent/rabbitmq_communication.ex"},{line,57}]},{gen_server,init_it,2,[{file,"gen_server.erl"},{line,374}]},{gen_server,init_it,6,[{file,"gen_server.erl"},{line,342}]},{proc_lib,init_p_do_apply,3,[{file,"proc_lib.erl"},{line,249}]}]}}}
+     Offender:   [{pid,undefined},{id,'Elixir.SmartPetFeederAgent.Supervisor'},{mfargs,{'Elixir.SmartPetFeederAgent.Supervisor',start_link,[[]]}},{restart_type,permanent},{shutdown,infinity},{child_type,supervisor}]
+
+2019-03-23 17:42:40 =CRASH REPORT====
+  crasher:
+    initial call: application_master:init/4
+    pid: <0.276.0>
+    registered_name: []
+    exception exit: {{{shutdown,{failed_to_start_child,'Elixir.SmartPetFeederAgent.Supervisor',{shutdown,{failed_to_start_child,'Elixir.RabbitMQCommunication',{{badmatch,{error,unknown_host}},[{'Elixir.RabbitMQCommunication',setup,0,[{file,"lib/smart_pet_feeder_agent/rabbitmq_communication.ex"},{line,111}]},{'Elixir.RabbitMQCommunication',init,1,[{file,"lib/smart_pet_feeder_agent/rabbitmq_communication.ex"},{line,57}]},{gen_server,init_it,2,[{file,"gen_server.erl"},{line,374}]},{gen_server,init_it,6,[{file,"gen_server.erl"},{line,342}]},{proc_lib,init_p_do_apply,3,[{file,"proc_lib.erl"},{line,249}]}]}}}}},{'Elixir.SmartPetFeederAgent.Application',start,[normal,[]]}},[{application_master,init,4,[{file,"application_master.erl"},{line,138}]},{proc_lib,init_p_do_apply,3,[{file,"proc_lib.erl"},{line,249}]}]}
+    ancestors: [<0.275.0>]
+    message_queue_len: 1
+    messages: [{'EXIT',<0.277.0>,normal}]
+    links: [<0.275.0>,<0.42.0>]
+    dictionary: []
+    trap_exit: true
+    status: running
+    heap_size: 987
+    stack_size: 27
+    reductions: 238
+  neighbours:
+2019-03-23 18:26:25 =CRASH REPORT====
+  crasher:
+    initial call: supervisor:Elixir.SmartPetFeederAgent.Supervisor/1
+    pid: <0.348.0>
+    registered_name: []
+    exception error: {#{'__exception__' => true,'__struct__' => 'Elixir.ArgumentError',message => <<"The module RabbitMQCommunication was given as a child to a supervisor but it does not exist.">>},[{'Elixir.Supervisor',init_child,1,[{file,"lib/supervisor.ex"},{line,639}]},{'Elixir.Enum','-map/2-lists^map/1-0-',2,[{file,"lib/enum.ex"},{line,1314}]},{'Elixir.Supervisor',init,2,[{file,"lib/supervisor.ex"},{line,625}]},{supervisor,init,1,[{file,"supervisor.erl"},{line,295}]},{gen_server,init_it,2,[{file,"gen_server.erl"},{line,374}]},{gen_server,init_it,6,[{file,"gen_server.erl"},{line,342}]},{proc_lib,init_p_do_apply,3,[{file,"proc_lib.erl"},{line,249}]}]}
+    ancestors: [<0.347.0>,<0.346.0>]
+    message_queue_len: 0
+    messages: []
+    links: [<0.347.0>]
+    dictionary: []
+    trap_exit: true
+    status: running
+    heap_size: 610
+    stack_size: 27
+    reductions: 463
+  neighbours:
+2019-03-23 18:26:25 =SUPERVISOR REPORT====
+     Supervisor: {<0.347.0>,'Elixir.Supervisor.Default'}
+     Context:    start_error
+     Reason:     {#{'__exception__' => true,'__struct__' => 'Elixir.ArgumentError',message => <<"The module RabbitMQCommunication was given as a child to a supervisor but it does not exist.">>},[{'Elixir.Supervisor',init_child,1,[{file,"lib/supervisor.ex"},{line,639}]},{'Elixir.Enum','-map/2-lists^map/1-0-',2,[{file,"lib/enum.ex"},{line,1314}]},{'Elixir.Supervisor',init,2,[{file,"lib/supervisor.ex"},{line,625}]},{supervisor,init,1,[{file,"supervisor.erl"},{line,295}]},{gen_server,init_it,2,[{file,"gen_server.erl"},{line,374}]},{gen_server,init_it,6,[{file,"gen_server.erl"},{line,342}]},{proc_lib,init_p_do_apply,3,[{file,"proc_lib.erl"},{line,249}]}]}
+     Offender:   [{pid,undefined},{id,'Elixir.SmartPetFeederAgent.Supervisor'},{mfargs,{'Elixir.SmartPetFeederAgent.Supervisor',start_link,[[]]}},{restart_type,permanent},{shutdown,infinity},{child_type,supervisor}]
+
+2019-03-23 18:26:25 =CRASH REPORT====
+  crasher:
+    initial call: application_master:init/4
+    pid: <0.345.0>
+    registered_name: []
+    exception exit: {{{shutdown,{failed_to_start_child,'Elixir.SmartPetFeederAgent.Supervisor',{#{'__exception__' => true,'__struct__' => 'Elixir.ArgumentError',message => <<"The module RabbitMQCommunication was given as a child to a supervisor but it does not exist.">>},[{'Elixir.Supervisor',init_child,1,[{file,"lib/supervisor.ex"},{line,639}]},{'Elixir.Enum','-map/2-lists^map/1-0-',2,[{file,"lib/enum.ex"},{line,1314}]},{'Elixir.Supervisor',init,2,[{file,"lib/supervisor.ex"},{line,625}]},{supervisor,init,1,[{file,"supervisor.erl"},{line,295}]},{gen_server,init_it,2,[{file,"gen_server.erl"},{line,374}]},{gen_server,init_it,6,[{file,"gen_server.erl"},{line,342}]},{proc_lib,init_p_do_apply,3,[{file,"proc_lib.erl"},{line,249}]}]}}},{'Elixir.SmartPetFeederAgent.Application',start,[normal,[]]}},[{application_master,init,4,[{file,"application_master.erl"},{line,138}]},{proc_lib,init_p_do_apply,3,[{file,"proc_lib.erl"},{line,249}]}]}
+    ancestors: [<0.344.0>]
+    message_queue_len: 1
+    messages: [{'EXIT',<0.346.0>,normal}]
+    links: [<0.344.0>,<0.42.0>]
+    dictionary: []
+    trap_exit: true
+    status: running
+    heap_size: 987
+    stack_size: 27
+    reductions: 235
+  neighbours:
+2019-03-23 18:34:06 =SUPERVISOR REPORT====
+     Supervisor: {<0.279.0>,'Elixir.SmartPetFeederAgent.Supervisor'}
+     Context:    child_terminated
+     Reason:     normal
+     Offender:   [{pid,<0.280.0>},{id,'Elixir.RabbitMQCommunication'},{mfargs,{'Elixir.RabbitMQCommunication',start_link,[[]]}},{restart_type,permanent},{shutdown,5000},{child_type,worker}]
+
+2019-03-23 18:35:32 =SUPERVISOR REPORT====
+     Supervisor: {<0.279.0>,'Elixir.SmartPetFeederAgent.Supervisor'}
+     Context:    child_terminated
+     Reason:     normal
+     Offender:   [{pid,<0.280.0>},{id,'Elixir.RabbitMQCommunication'},{mfargs,{'Elixir.RabbitMQCommunication',start_link,[[]]}},{restart_type,permanent},{shutdown,5000},{child_type,worker}]
+
+2019-03-23 18:58:24 =CRASH REPORT====
+  crasher:
+    initial call: Elixir.RabbitMQCommunication:init/1
+    pid: <0.280.0>
+    registered_name: []
+    exception exit: {{{shutdown,{server_initiated_close,406,<<"PRECONDITION_FAILED - inequivalent arg 'type' for exchange '0000000037f5fd8a' in vhost 'smartpetfeeder': received 'topic' but current is 'direct'">>}},{gen_server,call,[<0.295.0>,{call,{'exchange.declare',0,<<"0000000037f5fd8a">>,<<"topic">>,false,false,false,false,false,[]},none,<0.280.0>},60000]}},[{gen_server,call,3,[{file,"gen_server.erl"},{line,223}]},{'Elixir.AMQP.Exchange',declare,4,[{file,"lib/amqp/exchange.ex"},{line,42}]},{'Elixir.RabbitMQCommunication',connection_setup,0,[{file,"lib/smart_pet_feeder_agent/rabbitmq_communication.ex"},{line,389}]},{'Elixir.RabbitMQCommunication',init,1,[{file,"lib/smart_pet_feeder_agent/rabbitmq_communication.ex"},{line,187}]},{gen_server,init_it,2,[{file,"gen_server.erl"},{line,374}]},{gen_server,init_it,6,[{file,"gen_server.erl"},{line,342}]},{proc_lib,init_p_do_apply,3,[{file,"proc_lib.erl"},{line,249}]}]}
+    ancestors: [<0.279.0>,<0.278.0>,<0.277.0>]
+    message_queue_len: 0
+    messages: []
+    links: [<0.279.0>]
+    dictionary: [{gen_server_call_timeout,60000}]
+    trap_exit: false
+    status: running
+    heap_size: 2586
+    stack_size: 27
+    reductions: 8808
+  neighbours:
+2019-03-23 18:58:24 =SUPERVISOR REPORT====
+     Supervisor: {<0.279.0>,'Elixir.SmartPetFeederAgent.Supervisor'}
+     Context:    start_error
+     Reason:     {{shutdown,{server_initiated_close,406,<<"PRECONDITION_FAILED - inequivalent arg 'type' for exchange '0000000037f5fd8a' in vhost 'smartpetfeeder': received 'topic' but current is 'direct'">>}},{gen_server,call,[<0.295.0>,{call,{'exchange.declare',0,<<"0000000037f5fd8a">>,<<"topic">>,false,false,false,false,false,[]},none,<0.280.0>},60000]}}
+     Offender:   [{pid,undefined},{id,'Elixir.RabbitMQCommunication'},{mfargs,{'Elixir.RabbitMQCommunication',start_link,[[]]}},{restart_type,permanent},{shutdown,5000},{child_type,worker}]
+
+2019-03-23 18:58:24 =SUPERVISOR REPORT====
+     Supervisor: {<0.278.0>,'Elixir.Supervisor.Default'}
+     Context:    start_error
+     Reason:     {shutdown,{failed_to_start_child,'Elixir.RabbitMQCommunication',{{shutdown,{server_initiated_close,406,<<"PRECONDITION_FAILED - inequivalent arg 'type' for exchange '0000000037f5fd8a' in vhost 'smartpetfeeder': received 'topic' but current is 'direct'">>}},{gen_server,call,[<0.295.0>,{call,{'exchange.declare',0,<<"0000000037f5fd8a">>,<<"topic">>,false,false,false,false,false,[]},none,<0.280.0>},60000]}}}}
+     Offender:   [{pid,undefined},{id,'Elixir.SmartPetFeederAgent.Supervisor'},{mfargs,{'Elixir.SmartPetFeederAgent.Supervisor',start_link,[[]]}},{restart_type,permanent},{shutdown,infinity},{child_type,supervisor}]
+
+2019-03-24 10:46:50 =SUPERVISOR REPORT====
+     Supervisor: {<0.343.0>,'Elixir.SmartPetFeederAgent.Supervisor'}
+     Context:    child_terminated
+     Reason:     normal
+     Offender:   [{pid,<0.344.0>},{id,'Elixir.RabbitMQCommunication'},{mfargs,{'Elixir.RabbitMQCommunication',start_link,[[]]}},{restart_type,permanent},{shutdown,5000},{child_type,worker}]
+
+2019-03-24 10:46:50 =CRASH REPORT====
+  crasher:
+    initial call: Elixir.RabbitMQCommunication:init/1
+    pid: <0.372.0>
+    registered_name: []
+    exception error: {{badmatch,{error,not_allowed}},[{'Elixir.RabbitMQCommunication',connection_setup,0,[{file,"lib/smart_pet_feeder_agent/rabbitmq_communication.ex"},{line,378}]},{'Elixir.RabbitMQCommunication',init,1,[{file,"lib/smart_pet_feeder_agent/rabbitmq_communication.ex"},{line,187}]},{gen_server,init_it,2,[{file,"gen_server.erl"},{line,374}]},{gen_server,init_it,6,[{file,"gen_server.erl"},{line,342}]},{proc_lib,init_p_do_apply,3,[{file,"proc_lib.erl"},{line,249}]}]}
+    ancestors: [<0.343.0>,<0.342.0>,<0.341.0>]
+    message_queue_len: 0
+    messages: []
+    links: [<0.343.0>]
+    dictionary: [{gen_server_call_timeout,60000}]
+    trap_exit: false
+    status: running
+    heap_size: 2586
+    stack_size: 27
+    reductions: 8166
+  neighbours:
+2019-03-24 10:46:50 =SUPERVISOR REPORT====
+     Supervisor: {<0.343.0>,'Elixir.SmartPetFeederAgent.Supervisor'}
+     Context:    start_error
+     Reason:     {{badmatch,{error,not_allowed}},[{'Elixir.RabbitMQCommunication',connection_setup,0,[{file,"lib/smart_pet_feeder_agent/rabbitmq_communication.ex"},{line,378}]},{'Elixir.RabbitMQCommunication',init,1,[{file,"lib/smart_pet_feeder_agent/rabbitmq_communication.ex"},{line,187}]},{gen_server,init_it,2,[{file,"gen_server.erl"},{line,374}]},{gen_server,init_it,6,[{file,"gen_server.erl"},{line,342}]},{proc_lib,init_p_do_apply,3,[{file,"proc_lib.erl"},{line,249}]}]}
+     Offender:   [{pid,<0.344.0>},{id,'Elixir.RabbitMQCommunication'},{mfargs,{'Elixir.RabbitMQCommunication',start_link,[[]]}},{restart_type,permanent},{shutdown,5000},{child_type,worker}]
+
+2019-03-24 10:46:51 =CRASH REPORT====
+  crasher:
+    initial call: Elixir.RabbitMQCommunication:init/1
+    pid: <0.403.0>
+    registered_name: []
+    exception error: {{badmatch,{error,not_allowed}},[{'Elixir.RabbitMQCommunication',connection_setup,0,[{file,"lib/smart_pet_feeder_agent/rabbitmq_communication.ex"},{line,378}]},{'Elixir.RabbitMQCommunication',init,1,[{file,"lib/smart_pet_feeder_agent/rabbitmq_communication.ex"},{line,187}]},{gen_server,init_it,2,[{file,"gen_server.erl"},{line,374}]},{gen_server,init_it,6,[{file,"gen_server.erl"},{line,342}]},{proc_lib,init_p_do_apply,3,[{file,"proc_lib.erl"},{line,249}]}]}
+    ancestors: [<0.402.0>,<0.342.0>,<0.341.0>]
+    message_queue_len: 0
+    messages: []
+    links: [<0.402.0>]
+    dictionary: [{gen_server_call_timeout,60000}]
+    trap_exit: false
+    status: running
+    heap_size: 2586
+    stack_size: 27
+    reductions: 7453
+  neighbours:
+2019-03-24 10:46:51 =SUPERVISOR REPORT====
+     Supervisor: {<0.402.0>,'Elixir.SmartPetFeederAgent.Supervisor'}
+     Context:    start_error
+     Reason:     {{badmatch,{error,not_allowed}},[{'Elixir.RabbitMQCommunication',connection_setup,0,[{file,"lib/smart_pet_feeder_agent/rabbitmq_communication.ex"},{line,378}]},{'Elixir.RabbitMQCommunication',init,1,[{file,"lib/smart_pet_feeder_agent/rabbitmq_communication.ex"},{line,187}]},{gen_server,init_it,2,[{file,"gen_server.erl"},{line,374}]},{gen_server,init_it,6,[{file,"gen_server.erl"},{line,342}]},{proc_lib,init_p_do_apply,3,[{file,"proc_lib.erl"},{line,249}]}]}
+     Offender:   [{pid,undefined},{id,'Elixir.RabbitMQCommunication'},{mfargs,{'Elixir.RabbitMQCommunication',start_link,[[]]}},{restart_type,permanent},{shutdown,5000},{child_type,worker}]
+
+2019-03-24 10:46:51 =SUPERVISOR REPORT====
+     Supervisor: {<0.342.0>,'Elixir.Supervisor.Default'}
+     Context:    start_error
+     Reason:     {shutdown,{failed_to_start_child,'Elixir.RabbitMQCommunication',{{badmatch,{error,not_allowed}},[{'Elixir.RabbitMQCommunication',connection_setup,0,[{file,"lib/smart_pet_feeder_agent/rabbitmq_communication.ex"},{line,378}]},{'Elixir.RabbitMQCommunication',init,1,[{file,"lib/smart_pet_feeder_agent/rabbitmq_communication.ex"},{line,187}]},{gen_server,init_it,2,[{file,"gen_server.erl"},{line,374}]},{gen_server,init_it,6,[{file,"gen_server.erl"},{line,342}]},{proc_lib,init_p_do_apply,3,[{file,"proc_lib.erl"},{line,249}]}]}}}
+     Offender:   [{pid,<0.343.0>},{id,'Elixir.SmartPetFeederAgent.Supervisor'},{mfargs,{'Elixir.SmartPetFeederAgent.Supervisor',start_link,[[]]}},{restart_type,permanent},{shutdown,infinity},{child_type,supervisor}]
+
+2019-03-24 10:46:51 =CRASH REPORT====
+  crasher:
+    initial call: Elixir.RabbitMQCommunication:init/1
+    pid: <0.414.0>
+    registered_name: []
+    exception error: {{badmatch,{error,not_allowed}},[{'Elixir.RabbitMQCommunication',connection_setup,0,[{file,"lib/smart_pet_feeder_agent/rabbitmq_communication.ex"},{line,378}]},{'Elixir.RabbitMQCommunication',init,1,[{file,"lib/smart_pet_feeder_agent/rabbitmq_communication.ex"},{line,187}]},{gen_server,init_it,2,[{file,"gen_server.erl"},{line,374}]},{gen_server,init_it,6,[{file,"gen_server.erl"},{line,342}]},{proc_lib,init_p_do_apply,3,[{file,"proc_lib.erl"},{line,249}]}]}
+    ancestors: [<0.413.0>,<0.342.0>,<0.341.0>]
+    message_queue_len: 0
+    messages: []
+    links: [<0.413.0>]
+    dictionary: [{gen_server_call_timeout,60000}]
+    trap_exit: false
+    status: running
+    heap_size: 2586
+    stack_size: 27
+    reductions: 7453
+  neighbours:
+2019-03-24 10:46:51 =SUPERVISOR REPORT====
+     Supervisor: {<0.413.0>,'Elixir.SmartPetFeederAgent.Supervisor'}
+     Context:    start_error
+     Reason:     {{badmatch,{error,not_allowed}},[{'Elixir.RabbitMQCommunication',connection_setup,0,[{file,"lib/smart_pet_feeder_agent/rabbitmq_communication.ex"},{line,378}]},{'Elixir.RabbitMQCommunication',init,1,[{file,"lib/smart_pet_feeder_agent/rabbitmq_communication.ex"},{line,187}]},{gen_server,init_it,2,[{file,"gen_server.erl"},{line,374}]},{gen_server,init_it,6,[{file,"gen_server.erl"},{line,342}]},{proc_lib,init_p_do_apply,3,[{file,"proc_lib.erl"},{line,249}]}]}
+     Offender:   [{pid,undefined},{id,'Elixir.RabbitMQCommunication'},{mfargs,{'Elixir.RabbitMQCommunication',start_link,[[]]}},{restart_type,permanent},{shutdown,5000},{child_type,worker}]
+
+2019-03-24 10:46:51 =SUPERVISOR REPORT====
+     Supervisor: {<0.342.0>,'Elixir.Supervisor.Default'}
+     Context:    start_error
+     Reason:     {shutdown,{failed_to_start_child,'Elixir.RabbitMQCommunication',{{badmatch,{error,not_allowed}},[{'Elixir.RabbitMQCommunication',connection_setup,0,[{file,"lib/smart_pet_feeder_agent/rabbitmq_communication.ex"},{line,378}]},{'Elixir.RabbitMQCommunication',init,1,[{file,"lib/smart_pet_feeder_agent/rabbitmq_communication.ex"},{line,187}]},{gen_server,init_it,2,[{file,"gen_server.erl"},{line,374}]},{gen_server,init_it,6,[{file,"gen_server.erl"},{line,342}]},{proc_lib,init_p_do_apply,3,[{file,"proc_lib.erl"},{line,249}]}]}}}
+     Offender:   [{pid,{restarting,<0.343.0>}},{id,'Elixir.SmartPetFeederAgent.Supervisor'},{mfargs,{'Elixir.SmartPetFeederAgent.Supervisor',start_link,[[]]}},{restart_type,permanent},{shutdown,infinity},{child_type,supervisor}]
+
+2019-03-24 10:46:51 =CRASH REPORT====
+  crasher:
+    initial call: Elixir.RabbitMQCommunication:init/1
+    pid: <0.425.0>
+    registered_name: []
+    exception error: {{badmatch,{error,not_allowed}},[{'Elixir.RabbitMQCommunication',connection_setup,0,[{file,"lib/smart_pet_feeder_agent/rabbitmq_communication.ex"},{line,378}]},{'Elixir.RabbitMQCommunication',init,1,[{file,"lib/smart_pet_feeder_agent/rabbitmq_communication.ex"},{line,187}]},{gen_server,init_it,2,[{file,"gen_server.erl"},{line,374}]},{gen_server,init_it,6,[{file,"gen_server.erl"},{line,342}]},{proc_lib,init_p_do_apply,3,[{file,"proc_lib.erl"},{line,249}]}]}
+    ancestors: [<0.424.0>,<0.342.0>,<0.341.0>]
+    message_queue_len: 0
+    messages: []
+    links: [<0.424.0>]
+    dictionary: [{gen_server_call_timeout,60000}]
+    trap_exit: false
+    status: running
+    heap_size: 2586
+    stack_size: 27
+    reductions: 7453
+  neighbours:
+2019-03-24 10:46:51 =SUPERVISOR REPORT====
+     Supervisor: {<0.424.0>,'Elixir.SmartPetFeederAgent.Supervisor'}
+     Context:    start_error
+     Reason:     {{badmatch,{error,not_allowed}},[{'Elixir.RabbitMQCommunication',connection_setup,0,[{file,"lib/smart_pet_feeder_agent/rabbitmq_communication.ex"},{line,378}]},{'Elixir.RabbitMQCommunication',init,1,[{file,"lib/smart_pet_feeder_agent/rabbitmq_communication.ex"},{line,187}]},{gen_server,init_it,2,[{file,"gen_server.erl"},{line,374}]},{gen_server,init_it,6,[{file,"gen_server.erl"},{line,342}]},{proc_lib,init_p_do_apply,3,[{file,"proc_lib.erl"},{line,249}]}]}
+     Offender:   [{pid,undefined},{id,'Elixir.RabbitMQCommunication'},{mfargs,{'Elixir.RabbitMQCommunication',start_link,[[]]}},{restart_type,permanent},{shutdown,5000},{child_type,worker}]
+
+2019-03-24 10:46:51 =SUPERVISOR REPORT====
+     Supervisor: {<0.342.0>,'Elixir.Supervisor.Default'}
+     Context:    start_error
+     Reason:     {shutdown,{failed_to_start_child,'Elixir.RabbitMQCommunication',{{badmatch,{error,not_allowed}},[{'Elixir.RabbitMQCommunication',connection_setup,0,[{file,"lib/smart_pet_feeder_agent/rabbitmq_communication.ex"},{line,378}]},{'Elixir.RabbitMQCommunication',init,1,[{file,"lib/smart_pet_feeder_agent/rabbitmq_communication.ex"},{line,187}]},{gen_server,init_it,2,[{file,"gen_server.erl"},{line,374}]},{gen_server,init_it,6,[{file,"gen_server.erl"},{line,342}]},{proc_lib,init_p_do_apply,3,[{file,"proc_lib.erl"},{line,249}]}]}}}
+     Offender:   [{pid,{restarting,<0.343.0>}},{id,'Elixir.SmartPetFeederAgent.Supervisor'},{mfargs,{'Elixir.SmartPetFeederAgent.Supervisor',start_link,[[]]}},{restart_type,permanent},{shutdown,infinity},{child_type,supervisor}]
+
+2019-03-24 10:46:51 =SUPERVISOR REPORT====
+     Supervisor: {<0.342.0>,'Elixir.Supervisor.Default'}
+     Context:    shutdown
+     Reason:     reached_max_restart_intensity
+     Offender:   [{pid,{restarting,<0.343.0>}},{id,'Elixir.SmartPetFeederAgent.Supervisor'},{mfargs,{'Elixir.SmartPetFeederAgent.Supervisor',start_link,[[]]}},{restart_type,permanent},{shutdown,infinity},{child_type,supervisor}]
+
