@@ -15,8 +15,17 @@ import css from "../css/app.css"
 // Local files can be imported directly using relative paths, for example:
 import socket from "./socket"
 import feeder_management from "./feeder_management"
+import pet_management from "./pet_management"
 
 let csrf = document.querySelector("meta[name=csrf]").content;
+
+$('#login_page').on('click', function () {
+    window.location.href = "/login";
+});
+
+$('#register_page').on('click', function () {
+    window.location.href = "/register";
+});
 
 $('#login').on('click', function () {
 
@@ -47,7 +56,8 @@ $('#login').on('click', function () {
                 },
                 url: "/set_auth_configs",
                 success: function (msg) {
-                    console.log(msg)
+                    // Do some token validation and redirect
+                    window.location.href = "/pet_management";
                 },
                 error: function (xhr, status) {
                     console.log("Error on setting auth configs.");

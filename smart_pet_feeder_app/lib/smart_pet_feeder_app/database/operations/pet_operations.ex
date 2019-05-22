@@ -35,7 +35,7 @@ defmodule SmartPetFeederApp.PetOperations do
     pet = %Pets{
       name: name,
       type: type,
-      age: age,
+      age: String.to_integer(age),
       gender: gender,
       breed: breed,
       users_id: user_id
@@ -130,7 +130,7 @@ defmodule SmartPetFeederApp.PetOperations do
     query =
       from(p in "pets",
         where: p.users_id == ^user_id,
-        select: [p.name, p.type, p.age, p.gender, p.breed, p.users_id]
+        select: [p.id, p.name, p.type, p.age, p.gender, p.breed, p.users_id]
       )
 
     response =
@@ -138,15 +138,18 @@ defmodule SmartPetFeederApp.PetOperations do
       |> Ecto.Queryable.to_query()
       |> Repo.all([])
 
+    IO.inspect(response)
+
     pets =
       for pet <- response,
           do: %{
-            id: pet.id,
-            type: pet.type,
-            age: pet.age,
-            gender: pet.gender,
-            breed: pet.breed,
-            user_id: pet.user_id
+            id: Enum.at(pet, 0),
+            name: Enum.at(pet, 1),
+            type: Enum.at(pet, 2),
+            age: Enum.at(pet, 3),
+            gender: Enum.at(pet, 4),
+            breed: Enum.at(pet, 5),
+            user_id: Enum.at(pet, 6)
           }
 
     {:ok, pets}

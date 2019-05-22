@@ -44,7 +44,7 @@ defmodule SmartPetFeederAppWeb.SessionController do
   def logout(conn, _params) do
     conn
     |> clear_session
-    |> render("login.html")
+    |> render("index.html")
   end
 
   def set_auth_configs(conn, params) do

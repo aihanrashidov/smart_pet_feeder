@@ -1,10 +1,10 @@
 
-<div>
-    <div id="login_img"><img src="/images/login_icon.svg"></div>
-    <div id="app_name"><label>SmartPetFeeder</label></div>
-    <div id='login_inp'><input type="text" class='form-control' id="username" placeholder="Username"></div>
-    <div id='login_inp'><input type="password" class='form-control' id="password" placeholder="Password"></div>
+<div id="login_form">
+    <div id="login_img"><img src="/images/login_img.png"></div>
+    <div id="app_name"><label style="text-shadow: -2px 2px 13px rgba(28,110,164,0.45);">SmartPetFeeder</label></div>
+    <div id='login_inp'><input type="text" class='form-control' id="username" placeholder="Username" required></div>
+    <div id='login_inp'><input type="password" class='form-control' id="password" placeholder="Password" required></div>
+    <button id="login" class="btn btn-dark">Login</button>
+    <br>
+    <label style="text-align: center;">For a new user click <a href="/register">here</a> to register an account.</label>
 </div>
-
-<button id="login" class="btn btn-dark">Login</button>
-<label>For a new user click <a href="/register">here</a> to register an account.</label>

@@ -1,0 +1,31 @@
+<%= render "navbar.html" %>
+
+<input type="hidden" id="username_conf" value=<%= @username %>>
+<input type="hidden" id="token_conf" value=<%= @token %>>
+
+<br>
+
+<div id="opeartion_type_pet">
+    <select id="select_operation_pet" class="form-control">
+        <option value="" disabled selected>Select Operation</option>
+        <option>Add pet</option>
+        <option>Delete pet</option>
+        <option>Update pet</option>
+    </select>
+</div>
+
+<div id="display_operation_pet">
+    <form id="operation_form_pet">
+    </form>
+</div>
+
+<div id="btn_toggle">
+    <button type="button" class="btn btn-dark" id="send_operation_pet">Confirm</button>
+</div>
+
+<br>
+
+<label>My Pets</label>
+
+<div id="display_pets">
+</div>

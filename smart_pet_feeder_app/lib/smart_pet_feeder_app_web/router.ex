@@ -17,7 +17,9 @@ defmodule SmartPetFeederAppWeb.Router do
     pipe_through(:browser)
 
     get("/", PageController, :index)
+    get("/", SessionController, :index)
     get("/feeder_management", PageController, :feeder_management)
+    get("/pet_management", PageController, :pet_management)
 
     get("/login", SessionController, :login)
     post("/login_user", SessionController, :login_user)
@@ -28,6 +30,11 @@ defmodule SmartPetFeederAppWeb.Router do
     get("/logout", SessionController, :logout)
 
     post("/set_auth_configs", SessionController, :set_auth_configs)
+
+    post("/add_pet", PageController, :add_pet)
+    post("/delete_pet", PageController, :delete_pet)
+    post("/update_pet", PageController, :update_pet)
+    post("/get_pets", PageController, :get_pets)
 
     post("/add_feeder", PageController, :add_feeder)
     post("/delete_feeder", PageController, :delete_feeder)

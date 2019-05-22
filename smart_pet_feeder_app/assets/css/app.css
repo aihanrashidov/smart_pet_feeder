@@ -17,3 +17,124 @@
     justify-content: center;
     background: rgba(255,255,255,.7);
 }
+
+#login_form {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10%;
+}
+
+#index_form {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20%;
+}
+
+#index_form img {
+    width: 200px;
+    height: 150px;
+}
+
+#index_form button {
+    margin-top: 10px;
+    width: 200px;
+}
+
+#app_name {
+    font-size: 1.3em;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #4FC4EE;
+}
+
+#login_img {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+
+#login_inp {
+    margin-bottom: 10px;
+}
+
+#login {
+    margin-top: 10px;
+    width: 200px;
+}
+
+#login_form img {
+    width: 200px;
+    height: 150px;
+}
+
+#register_form {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 3%;
+}
+
+#app_name {
+    font-size: 1.3em;
+    font-weight: bold;
+    margin-bottom: -5px;
+    color: #4FC4EE;
+}
+
+#register_img {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+
+#register_inp {
+    margin-bottom: 10px;
+}
+
+#register {
+    margin-top: 0px;
+    margin-bottom: 5px;
+    width: 200px;
+}
+
+#register_form img {
+    width: 200px;
+    height: 150px;
+}
+
+.feeder_box {
+    padding: 10px;
+    border: 1.3px solid black;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.pet_box {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1.3px solid black;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+#fr_inp {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+#btn_toggle {
+    display: none;
+}

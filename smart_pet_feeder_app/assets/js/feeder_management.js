@@ -27,7 +27,6 @@ let water_btn_status = "";
 let food_btn_status = "";
 
 $(document).ready(function () {
-    $('#btn_toggle').hide();
     initial_load_feeders();
     load_feeders();
 });
@@ -61,6 +60,10 @@ function initial_load_feeders() {
                         let top_water_sensor = msg.message.sensors_data.top_water_sensor
                         let bottom_water_sensor = msg.message.sensors_data.bottom_water_sensor;
                         let feeder_id = msg.message.feeder_id;
+
+                        if (top_water_sensor == "YES") {
+                            $('#loading').toggleClass('active');
+                        }
 
                         $.ajax({
                             method: "POST",
@@ -102,13 +105,14 @@ function initial_load_feeders() {
                     console.log(water_btn_status);
 
                     feeders = feeders +
-                        "<div id='feeder_id_" + msg.response[i].id + "'>" +
+                        "<div class='feeder_box' id='feeder_id_" + msg.response[i].id + "'>" +
                         "<label>Serial number: " + msg.response[i].serial + "</label>" +
                         "<label>Device status: " + msg.response[i].device_status + "</label>" +
                         "<label>Water status: " + msg.response[i].water_status + "</label>" +
-                        "<button id='fill_water' data-feeder_serial='" + msg.response[i].serial + "' feeder_id='" + msg.response[i].id + "' " + water_btn_status + ">Fill Water</button>" +
+                        "<button id='fill_water' class='btn btn-dark' data-feeder_serial='" + msg.response[i].serial + "' feeder_id='" + msg.response[i].id + "' " + water_btn_status + ">Fill Water</button>" +
+                        "<br>" +
                         "<label>Food status: " + msg.response[i].food_status + "</label>" +
-                        "<button id='fill_food' data-feeder_serial='" + msg.response[i].serial + "' feeder_id='" + msg.response[i].id + "' " + food_btn_status + ">Fill Food</button>" +
+                        "<button id='fill_food' class='btn btn-dark' data-feeder_serial='" + msg.response[i].serial + "' feeder_id='" + msg.response[i].id + "' " + food_btn_status + ">Fill Food</button>" +
                         "</div>"
                 }
 
@@ -167,13 +171,14 @@ function load_feeders() {
                     }
 
                     feeders = feeders +
-                        "<div id='feeder_id_" + msg.response[i].id + "'>" +
+                        "<div class='feeder_box' id='feeder_id_" + msg.response[i].id + "'>" +
                         "<label>Serial number: " + msg.response[i].serial + "</label>" +
                         "<label>Device status: " + msg.response[i].device_status + "</label>" +
                         "<label>Water status: " + msg.response[i].water_status + "</label>" +
-                        "<button id='fill_water' data-feeder_serial='" + msg.response[i].serial + "' feeder_id='" + msg.response[i].id + "' " + water_btn_status + ">Fill Water</button>" +
+                        "<button id='fill_water' class='btn btn-dark' data-feeder_serial='" + msg.response[i].serial + "' feeder_id='" + msg.response[i].id + "' " + water_btn_status + ">Fill Water</button>" +
+                        "<br>" +
                         "<label>Food status: " + msg.response[i].food_status + "</label>" +
-                        "<button id='fill_food' data-feeder_serial='" + msg.response[i].serial + "' feeder_id='" + msg.response[i].id + "' " + food_btn_status + ">Fill Food</button>" +
+                        "<button id='fill_food' class='btn btn-dark' data-feeder_serial='" + msg.response[i].serial + "' feeder_id='" + msg.response[i].id + "' " + food_btn_status + ">Fill Food</button>" +
                         "</div>"
                 }
 
@@ -399,12 +404,13 @@ $('#display_feeders').on('click', '#fill_water', function (e) {
     console.log("FILL WATER STARTED");
     let serial = $(this).data('feeder_serial');
     console.log(serial);
-    channel.push(serial + "_agent", "fill_water")
+    channel.push(serial + "_agent", "fill_water");
+    $('#loading').toggleClass('active');
 });
 
-$('#display_feeders').on('click', '#fill_food', function (e) {
-    console.log("FILL WATER STARTED");
-    let serial = $(this).data('feeder_serial');
-    console.log(serial);
-    channel.push(serial + "_agent", "fill_food")
-});
+// $('#display_feeders').on('click', '#fill_food', function (e) {
+//     console.log("FILL FOOD STARTED");
+//     let serial = $(this).data('feeder_serial');
+//     console.log(serial);
+//     channel.push(serial + "_agent", "fill_food")
+// });

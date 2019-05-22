@@ -55,7 +55,7 @@ defmodule SmartPetFeederApp.DBManager do
   @pet_update_list %{
     name: [validator: &is_binary/1],
     type: [validator: &is_binary/1],
-    age: [validator: &is_binary/1],
+    age: [validator: &is_integer/1],
     gender: [validator: &is_binary/1],
     breed: [validator: &is_binary/1],
     user_id: [validator: &is_integer/1]

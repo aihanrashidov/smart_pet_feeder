@@ -48,7 +48,6 @@ defmodule SmartPetFeederApp.MixProject do
       {:comeonin, "~> 4.0"},
       {:argon2_elixir, "~> 1.2"},
       {:bcrypt_elixir, "~> 1.1"},
-      {:amqp, "~> 1.1"},
       {:httpoison, "~> 1.2"}
     ]
   end
