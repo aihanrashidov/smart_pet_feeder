@@ -5,6 +5,8 @@
     <div id='login_inp'><input type="text" class='form-control' id="username" placeholder="Username" required></div>
     <div id='login_inp'><input type="password" class='form-control' id="password" placeholder="Password" required></div>
     <button id="login" class="btn btn-dark">Login</button>
+    <div id="invalid">
+    </div>
     <br>
     <label style="text-align: center;">For a new user click <a href="/register">here</a> to register an account.</label>
 </div>

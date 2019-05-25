@@ -6,7 +6,7 @@ defmodule SmartPetFeederApp.Repo.Migrations.CreateFeeders do
       add(:serial, :string)
       add(:device_status, :string)
       add(:water_status, :string)
-      add(:food_status, :string)
+      add(:location, :string)
       add(:users_id, references("users"))
     end
   end

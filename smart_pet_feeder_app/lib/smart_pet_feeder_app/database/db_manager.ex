@@ -2,6 +2,7 @@ defmodule SmartPetFeederApp.DBManager do
   alias SmartPetFeederApp.UserOperations
   alias SmartPetFeederApp.PetOperations
   alias SmartPetFeederApp.FeederOperations
+  alias SmartPetFeederApp.SerialOperations
 
   require Logger
 
@@ -64,7 +65,8 @@ defmodule SmartPetFeederApp.DBManager do
   ## Feeder validation schemas
   @feeder_add %{
     serial: [required: true, validator: &is_binary/1],
-    user_id: [required: true, validator: &is_integer/1]
+    user_id: [required: true, validator: &is_integer/1],
+    location: [required: true, validator: &is_binary/1]
   }
 
   @feeder_update %{
@@ -84,8 +86,15 @@ defmodule SmartPetFeederApp.DBManager do
     serial: [validator: &is_binary/1],
     device_status: [validator: &is_binary/1],
     water_status: [validator: &is_binary/1],
-    food_status: [validator: &is_binary/1]
+    location: [validator: &is_binary/1]
   }
+
+  ## Serial validation schemas
+  @serial_add %{
+    serial: [required: true, validator: &is_binary/1]
+  }
+
+  @serial_get %{}
 
   ## Users operations
   def add(:user, params) do
@@ -254,9 +263,9 @@ defmodule SmartPetFeederApp.DBManager do
     case Optium.parse(params, @feeder_add) do
       {:ok, _} ->
         if Kernel.map_size(@feeder_add) == Kernel.length(params) do
-          [serial: serial, user_id: user_id] = params
+          [serial: serial, user_id: user_id, location: location] = params
 
-          Kernel.apply(FeederOperations, :add, [serial, user_id])
+          Kernel.apply(FeederOperations, :add, [serial, user_id, location])
         else
           {:error, :key_match_error}
         end
@@ -302,6 +311,38 @@ defmodule SmartPetFeederApp.DBManager do
         if Kernel.map_size(@feeder_get) == Kernel.length(params) do
           [user_id: user_id] = params
           Kernel.apply(FeederOperations, :get, [user_id])
+        else
+          {:error, :key_match_error}
+        end
+
+      {:error, _error} ->
+        {:error, :key_match_error}
+    end
+  end
+
+  ## Serial operations
+  def add(:serial, params) do
+    case Optium.parse(params, @serial_add) do
+      {:ok, _} ->
+        if Kernel.map_size(@serial_add) == Kernel.length(params) do
+          [serial: serial] = params
+
+          Kernel.apply(SerialOperations, :add, [serial])
+        else
+          {:error, :key_match_error}
+        end
+
+      {:error, _error} ->
+        {:error, :key_match_error}
+    end
+  end
+
+  def get(:serial, params) do
+    case Optium.parse(params, @serial_get) do
+      {:ok, _} ->
+        if Kernel.map_size(@serial_get) == Kernel.length(params) do
+          [] = params
+          Kernel.apply(SerialOperations, :get, [])
         else
           {:error, :key_match_error}
         end

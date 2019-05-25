@@ -8,6 +8,8 @@
     <div id='register_inp'><input type="text" class='form-control' id="first_name" placeholder="First name"></div>
     <div id='register_inp'><input type="text" class='form-control' id="last_name" placeholder="Last name"></div>
     <button id="register" class="btn btn-dark">Register</button>
+    <div id="invalid">
+    </div>
     
     <label style="text-align: center;">You already have an account? Click <a href="/login">here</a> to login.</label>
 </div>

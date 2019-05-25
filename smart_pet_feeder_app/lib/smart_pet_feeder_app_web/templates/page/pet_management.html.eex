@@ -17,6 +17,8 @@
 <div id="display_operation_pet">
     <form id="operation_form_pet">
     </form>
+    <div id="invalid">
+    </div>
 </div>
 
 <div id="btn_toggle">
@@ -29,3 +31,5 @@
 
 <div id="display_pets">
 </div>
+
+<script type="text/javascript" src="<%= Routes.static_path(@conn, "/js/pet_management.js") %>"></script>

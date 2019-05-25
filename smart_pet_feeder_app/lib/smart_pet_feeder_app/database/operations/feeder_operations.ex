@@ -9,6 +9,7 @@ defmodule SmartPetFeederApp.FeederOperations do
   alias SmartPetFeederApp.Repo
 
   @type serial() :: String.t()
+  @type location() :: String.t()
   @type user_id() :: integer()
   @type feeder_id() :: integer()
   @type update_list() :: list()
@@ -22,13 +23,13 @@ defmodule SmartPetFeederApp.FeederOperations do
   iex(1)> SmartPetFeederApp.FeederOperations.add("2387535", 1)
   """
 
-  @spec add(serial(), user_id()) :: tuple()
-  def add(serial, user_id) do
+  @spec add(serial(), user_id(), location()) :: tuple()
+  def add(serial, user_id, location) do
     feeder = %Feeders{
       serial: serial,
-      device_status: nil,
-      water_status: nil,
-      food_status: nil,
+      device_status: "Inactive",
+      water_status: "No water",
+      location: location,
       users_id: user_id
     }
 
@@ -40,7 +41,7 @@ defmodule SmartPetFeederApp.FeederOperations do
            serial: feeder.serial,
            device_status: feeder.device_status,
            water_status: feeder.water_status,
-           food_status: feeder.food_status,
+           location: location,
            users_id: feeder.users_id
          }}
 
@@ -121,7 +122,8 @@ defmodule SmartPetFeederApp.FeederOperations do
     query =
       from(p in "feeders",
         where: p.users_id == ^user_id,
-        select: [p.id, p.serial, p.device_status, p.water_status, p.food_status, p.users_id]
+        select: [p.id, p.serial, p.device_status, p.water_status, p.location, p.users_id],
+        order_by: p.id
       )
 
     response =
@@ -132,13 +134,13 @@ defmodule SmartPetFeederApp.FeederOperations do
     IO.inspect(response)
 
     feeders =
-      for [id, serial, device_status, water_status, food_status, users_id] <- response,
+      for [id, serial, device_status, water_status, location, users_id] <- response,
           do: %{
             id: id,
             serial: serial,
             device_status: device_status,
             water_status: water_status,
-            food_status: food_status,
+            location: location,
             users_id: users_id
           }
 

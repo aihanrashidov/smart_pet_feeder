@@ -112,6 +112,7 @@
 
 .feeder_box {
     padding: 10px;
+    margin-bottom: 10px;
     border: 1.3px solid black;
     border-radius: 10px;
     display: flex;
@@ -137,4 +138,29 @@
 
 #btn_toggle {
     display: none;
+}
+
+#nav_logo {
+    width:50px;
+    height:40px;
+    margin-right: 10px;
+}
+
+#nav_label {
+    font-size: 1.0em;
+    font-weight: bold;
+    color: #4FC4EE;
+}
+
+#invalids {
+    margin-top: 10px;
+}
+
+#inv_text {
+    color: red;
+    margin-left: 5px;
+}
+
+#reg_fails {
+    text-align: left;
 }

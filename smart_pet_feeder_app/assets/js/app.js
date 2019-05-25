@@ -14,8 +14,7 @@ import css from "../css/app.css"
 //
 // Local files can be imported directly using relative paths, for example:
 import socket from "./socket"
-import feeder_management from "./feeder_management"
-import pet_management from "./pet_management"
+import Swal from 'sweetalert2'
 
 let csrf = document.querySelector("meta[name=csrf]").content;
 
@@ -45,24 +44,52 @@ $('#login').on('click', function () {
         success: function (msg) {
             console.log(msg);
 
-            $.ajax({
-                method: "POST",
-                headers: {
-                    "X-CSRF-TOKEN": csrf
-                },
-                data: {
-                    token: msg.response.token,
-                    username: username
-                },
-                url: "/set_auth_configs",
-                success: function (msg) {
-                    // Do some token validation and redirect
-                    window.location.href = "/pet_management";
-                },
-                error: function (xhr, status) {
-                    console.log("Error on setting auth configs.");
+            if (msg.response == "username") {
+                $('#invalid').html('');
+                $('#invalid').append(
+                    "<div id='invalids'><label>&#8226;</label><label id='inv_text'>Missing username.</label></div>"
+                );
+            }
+            else if (msg.response == "password") {
+                $('#invalid').html('');
+                $('#invalid').append(
+                    "<div id='invalids'><label>&#8226;</label><label id='inv_text'>Missing password.</label></div>"
+                );
+            }
+            else if (msg.response == "both") {
+                $('#invalid').html('');
+                $('#invalid').append(
+                    "<div id='invalids'><label>&#8226;</label><label id='inv_text'>Missing username and password.</label></div>"
+                );
+            }
+            else {
+                if (msg.response == "incorrect_usr_or_pass") {
+                    Swal.fire(
+                        'Login Error!',
+                        'Wrong username or password.',
+                        'error'
+                    )
+                } else {
+                    $.ajax({
+                        method: "POST",
+                        headers: {
+                            "X-CSRF-TOKEN": csrf
+                        },
+                        data: {
+                            token: msg.response.token,
+                            username: username
+                        },
+                        url: "/set_auth_configs",
+                        success: function (msg) {
+                            // Do some token validation and redirect
+                            window.location.href = "/pet_management";
+                        },
+                        error: function (xhr, status) {
+                            console.log("Error on setting auth configs.");
+                        }
+                    });
                 }
-            });
+            }
         },
         error: function (xhr, status) {
             console.log("Error on login.");
@@ -92,8 +119,129 @@ $('#register').on('click', function () {
         },
         success: function (msg) {
             console.log(msg)
+
+
+
+            if (msg.response == "all") {
+                $('#invalid').html('');
+                $('#invalid').append(
+                    "<div id='invalids'><label>&#8226;</label><label id='inv_text'>Missing username, password, email, first name and last name.</label></div>"
+                );
+            }
+            else if (msg.status == "error_all") {
+                $('#invalid').html('');
+                $('#invalid').append(
+                    "<div id='invalids' style='text-align: center;'><label>&#8226; <span  id='inv_text'>Missing " + msg.response + ".</span></label></div>"
+                );
+            }
+            else {
+                $('#invalid').html('');
+                if (msg.status == "ok") {
+                    Swal.fire({
+                        title: 'Registration Successful!',
+                        html:
+                            'Your account has been registered.<br>' +
+                            'You can now <a href="/login">login</a>.',
+                        type: 'success'
+                    })
+                } else {
+                    if (msg.response == "username") {
+                        $('#invalid').html('');
+                        $('#invalid').append(
+                            "<div id='invalids'><label>&#8226;</label><label id='inv_text'>Username error.</label></div>"
+                        );
+                        Swal.fire({
+                            title: 'Registration Error!',
+                            html:
+                                'Failed to register account.<br><br>' +
+                                '<div id="reg_fails">' +
+                                '<label style="padding-left: 20px;">Your username:</label>' +
+                                '<ul>' +
+                                '<li>Must be between 2 and 12 characters long.</li>' +
+                                '<li>Can contain any letters from a to z or A to Z and any numbers from 0 through 9.</li>' +
+                                '<li>Can contain some special characters - underscore or dash.</li>' +
+                                '</ul>.' +
+                                '</div>',
+                            type: 'error'
+                        })
+                    }
+                    else if (msg.response == "password") {
+                        $('#invalid').html('');
+                        $('#invalid').append(
+                            "<div id='invalids'><label>&#8226;</label><label id='inv_text'>Password error.</label></div>"
+                        );
+                        Swal.fire({
+                            title: 'Registration Error!',
+                            html:
+                                'Failed to register account.<br><br>' +
+                                '<div id="reg_fails">' +
+                                '<label style="padding-left: 20px;">Your password:</label>' +
+                                '<ul>' +
+                                '<li>Must be between 4 and 20 characters long.</li>' +
+                                '<li>Can contain any letters from a to z or A to Z and any numbers from 0 through 9.</li>' +
+                                '</ul>.' +
+                                '</div>',
+                            type: 'error'
+                        })
+                    }
+                    else if (msg.response == "email") {
+                        $('#invalid').html('');
+                        $('#invalid').append(
+                            "<div id='invalids'><label>&#8226;</label><label id='inv_text'>Email error.</label></div>"
+                        );
+                        Swal.fire({
+                            title: 'Registration Error!',
+                            html:
+                                'Failed to register account.<br>' +
+                                'Invalid email address.',
+                            type: 'error'
+                        })
+                    }
+                    else if (msg.response == "first_name") {
+                        $('#invalid').html('');
+                        $('#invalid').append(
+                            "<div id='invalids'><label>&#8226;</label><label id='inv_text'>First name error.</label></div>"
+                        );
+                        Swal.fire({
+                            title: 'Registration Error!',
+                            html:
+                                'Failed to register account.<br><br>' +
+                                '<div id="reg_fails">' +
+                                '<label style="padding-left: 20px;">Your first name:</label>' +
+                                '<ul>' +
+                                '<li>Must be between 2 and 20 characters long.</li>' +
+                                '<li>Can contain any letters from a to z or A to Z.' +
+                                '</ul>.' +
+                                '</div>',
+                            type: 'error'
+                        })
+                    }
+                    else if (msg.response == "last_name") {
+                        $('#invalid').html('');
+                        $('#invalid').append(
+                            "<div id='invalids'><label>&#8226;</label><label id='inv_text'>Last name error.</label></div>"
+                        );
+                        Swal.fire({
+                            title: 'Registration Error!',
+                            html:
+                                'Failed to register account.<br><br>' +
+                                '<div id="reg_fails">' +
+                                '<label style="padding-left: 20px;">Your last name:</label>' +
+                                '<ul>' +
+                                '<li>Must be between 2 and 20 characters long.</li>' +
+                                '<li>Can contain any letters from a to z or A to Z.' +
+                                '</ul>.' +
+                                '</div>',
+                            type: 'error'
+                        })
+                    }
+
+                }
+            }
+
         },
         error: function (xhr, status) {
+            $('#invalid').html('');
             console.log("Error!")
         }
     });

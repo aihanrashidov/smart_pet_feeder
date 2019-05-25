@@ -17,13 +17,17 @@
 <div id="display_operation">
     <form id="operation_form">
     </form>
+    <div id="invalid">
+    </div>
 </div>
 
 <div id="btn_toggle">
-    <button type="button" class="btn btn-dark" id="send_operation">Confirm</button>
+    <button type="submit" class="btn btn-dark" id="send_operation">Confirm</button>
 </div>
 
 <br>
 
 <div id="display_feeders">
 </div>
+
+<script type="text/javascript" src="<%= Routes.static_path(@conn, "/js/feeder_management.js") %>"></script>

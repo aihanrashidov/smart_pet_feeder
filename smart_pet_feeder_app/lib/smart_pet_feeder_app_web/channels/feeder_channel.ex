@@ -8,8 +8,7 @@ defmodule SmartPetFeederAppWeb.FeederChannel do
   end
 
   def handle_in(event, msg, socket) do
-    IO.inspect(msg)
-    broadcast!(socket, event, %{message: msg})
+    resp = broadcast!(socket, event, %{message: msg})
     {:noreply, socket}
   end
 end

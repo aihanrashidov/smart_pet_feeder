@@ -21,7 +21,7 @@ defmodule SmartPetFeederAppWeb.PageController do
     check = Map.get(conn.private.plug_session, "username", :undefined)
 
     if check == :undefined do
-      render(conn, "index.html")
+      render(conn, "login.html")
     else
       username = conn.private.plug_session["username"]
       token = conn.private.plug_session["token"]
@@ -39,19 +39,35 @@ defmodule SmartPetFeederAppWeb.PageController do
     gender = params["gender"]
     breed = params["breed"]
 
-    {_status, resp} = DBManager.get_user_id(:user, username: username)
+    resp =
+      if name == "" || age == "" || type == "" || gender == "" || breed == "" do
+        list = [name: name, age: age, type: type, gender: gender, breed: breed]
 
-    {_status, resp} =
-      DBManager.add(:pet,
-        name: name,
-        type: type,
-        age: age,
-        gender: gender,
-        breed: breed,
-        user_id: resp.user_id
-      )
+        case list do
+          ["", "", "", "", ""] ->
+            {:error, :all}
 
-    json(conn, %{response: resp})
+          _ ->
+            l = for {k, v} <- list, v == "", do: k
+            {:error, Enum.join(l, ", ")}
+        end
+      else
+        {_status, resp} = DBManager.get_user_id(:user, username: username)
+
+        {status, resp} =
+          DBManager.add(:pet,
+            name: name,
+            type: type,
+            age: age,
+            gender: gender,
+            breed: breed,
+            user_id: resp.user_id
+          )
+
+        {status, resp}
+      end
+
+    json(conn, %{status: elem(resp, 0), response: elem(resp, 1)})
   end
 
   def update_pet(conn, params) do
@@ -64,45 +80,62 @@ defmodule SmartPetFeederAppWeb.PageController do
     gender = params["gender"]
     breed = params["breed"]
 
-    age =
-      if age != "" do
-        String.to_integer(params["age"])
+    resp =
+      if pet == "" do
+        {:error, :pet}
       else
-        age
+        case [name, age, type, gender, breed] do
+          ["", "", "", "", ""] ->
+            {:error, :all}
+
+          _ ->
+            [pet_id, _rest] = String.split(pet, "|")
+            [_rest, pet_id] = String.split(pet_id, ":")
+
+            age =
+              if age != "" do
+                String.to_integer(params["age"])
+              else
+                age
+              end
+
+            list = [name: name, type: type, age: age, gender: gender, breed: breed]
+            list = for {x, y} <- list, y != "", do: {x, y}
+
+            {status, resp} =
+              DBManager.update(:pet,
+                pet_id: String.to_integer(pet_id),
+                list: list
+              )
+
+            {status, resp}
+        end
       end
 
-    list = [name: name, type: type, age: age, gender: gender, breed: breed]
-    list = for {x, y} <- list, y != "", do: {x, y}
-
-    [_x, y, _z] = String.split(pet, ":")
-    [x, _y] = String.split(y, "|")
-    pet = String.to_integer(x)
-
-    {_status, resp} =
-      DBManager.update(:pet,
-        pet_id: pet,
-        list: list
-      )
-
-    json(conn, %{response: resp})
+    json(conn, %{status: elem(resp, 0), response: elem(resp, 1)})
   end
 
   def delete_pet(conn, params) do
     username = params["username"]
     token = params["token"]
     pet = params["pet"]
-    name = params["name"]
 
-    [_x, y, _z] = String.split(pet, ":")
-    [x, _y] = String.split(y, "|")
-    pet = String.to_integer(x)
+    resp =
+      if pet == "" do
+        {:error, :pet}
+      else
+        [pet_id, _rest] = String.split(pet, "|")
+        [_rest, pet_id] = String.split(pet_id, ":")
 
-    {_status, resp} =
-      DBManager.delete(:pet,
-        pet_id: pet
-      )
+        {status, resp} =
+          DBManager.delete(:pet,
+            pet_id: String.to_integer(pet_id)
+          )
 
-    json(conn, %{response: resp})
+        {status, resp}
+      end
+
+    json(conn, %{status: elem(resp, 0), response: elem(resp, 1)})
   end
 
   def get_pets(conn, params) do
@@ -119,7 +152,7 @@ defmodule SmartPetFeederAppWeb.PageController do
     check = Map.get(conn.private.plug_session, "username", :undefined)
 
     if check == :undefined do
-      render(conn, "index.html")
+      render(conn, "login.html")
     else
       username = conn.private.plug_session["username"]
       token = conn.private.plug_session["token"]
@@ -131,10 +164,46 @@ defmodule SmartPetFeederAppWeb.PageController do
   def add_feeder(conn, params) do
     username = params["username"]
     token = params["token"]
-    serial = params["serial"]
+    new_serial = params["serial"]
+    location = params["location"]
 
-    {_status, resp} = DBManager.get_user_id(:user, username: username)
-    {_status, resp} = DBManager.add(:feeder, serial: serial, user_id: resp.user_id)
+    resp =
+      if new_serial == "" || location == "" do
+        list = [new_serial, location]
+
+        case list do
+          ["", ""] ->
+            :both
+
+          ["", _location] ->
+            :new_serial
+
+          [_new_serial, ""] ->
+            :location
+        end
+      else
+        {_status, usr_resp} = DBManager.get_user_id(:user, username: username)
+
+        {_status, resp} = DBManager.get(:serial, [])
+        IO.inspect(resp)
+
+        serials = for ser <- resp, ser.serial == new_serial, do: ser
+
+        case serials do
+          [] ->
+            "no_such_serial"
+
+          [serial] ->
+            {_status, resp} =
+              DBManager.add(:feeder,
+                serial: serial.serial,
+                user_id: usr_resp.user_id,
+                location: location
+              )
+
+            resp
+        end
+      end
 
     json(conn, %{response: resp})
   end
@@ -143,13 +212,34 @@ defmodule SmartPetFeederAppWeb.PageController do
     username = params["username"]
     token = params["token"]
     feeder = params["feeder"]
-    serial = params["serial"]
+    location = params["location"]
 
-    {_status, resp} =
-      DBManager.update(:feeder,
-        feeder_id: String.to_integer(String.at(feeder, 4)),
-        list: [serial: serial]
-      )
+    resp =
+      if feeder == "" || location == "" do
+        list = [feeder, location]
+
+        case list do
+          ["", ""] ->
+            :both
+
+          ["", _location] ->
+            :feeder
+
+          [_feeder, ""] ->
+            :location
+        end
+      else
+        [feeder_id, _rest] = String.split(feeder, "|")
+        [_rest, feeder_id] = String.split(feeder_id, ":")
+
+        {_status, resp} =
+          DBManager.update(:feeder,
+            feeder_id: String.to_integer(feeder_id),
+            list: [location: location]
+          )
+
+        resp
+      end
 
     json(conn, %{response: resp})
   end
@@ -158,21 +248,38 @@ defmodule SmartPetFeederAppWeb.PageController do
     feeder_id = params["feeder"]
     top_water_sensor = params["top_water_sensor"]
     bottom_water_sensor = params["bottom_water_sensor"]
+    device_status = params["device_status"]
 
     {_status, resp} =
       case bottom_water_sensor do
         "NO" ->
           DBManager.update(:feeder,
             feeder_id: String.to_integer(feeder_id),
-            list: [water_status: "No water."]
+            list: [water_status: "No water", device_status: device_status]
           )
 
         "YES" ->
           DBManager.update(:feeder,
             feeder_id: String.to_integer(feeder_id),
-            list: [water_status: "Water level okay."]
+            list: [water_status: "Water level okay", device_status: device_status]
           )
+
+        "" ->
+          {:init, :init}
       end
+
+    json(conn, %{response: resp})
+  end
+
+  def update_feeder_dev_status(conn, params) do
+    feeder_id = params["feeder"]
+    device_status = params["device_status"]
+
+    {_status, resp} =
+      DBManager.update(:feeder,
+        feeder_id: String.to_integer(feeder_id),
+        list: [device_status: device_status]
+      )
 
     json(conn, %{response: resp})
   end
@@ -181,16 +288,21 @@ defmodule SmartPetFeederAppWeb.PageController do
     username = params["username"]
     token = params["token"]
     feeder = params["feeder"]
-    serial = params["serial"]
 
-    [_x, y, _z] = String.split(feeder, ":")
-    [x, _y] = String.split(y, "|")
-    feeder = String.to_integer(x)
+    resp =
+      if feeder == "" do
+        :feeder
+      else
+        [feeder_id, _rest] = String.split(feeder, "|")
+        [_rest, feeder_id] = String.split(feeder_id, ":")
 
-    {_status, resp} =
-      DBManager.delete(:feeder,
-        feeder_id: feeder
-      )
+        {_status, resp} =
+          DBManager.delete(:feeder,
+            feeder_id: String.to_integer(feeder_id)
+          )
+
+        resp
+      end
 
     json(conn, %{response: resp})
   end

@@ -130,7 +130,8 @@ defmodule SmartPetFeederApp.PetOperations do
     query =
       from(p in "pets",
         where: p.users_id == ^user_id,
-        select: [p.id, p.name, p.type, p.age, p.gender, p.breed, p.users_id]
+        select: [p.id, p.name, p.type, p.age, p.gender, p.breed, p.users_id],
+        order_by: p.id
       )
 
     response =

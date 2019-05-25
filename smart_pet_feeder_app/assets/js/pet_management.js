@@ -1,3 +1,4 @@
+import Swal from 'sweetalert2'
 
 let csrf = document.querySelector("meta[name=csrf]").content;
 
@@ -66,7 +67,7 @@ function load_pets() {
 
 $('#select_operation_pet').on('change', function () {
     let operation = this.value;
-
+    $('#invalid').html('');
     switch (operation) {
         case "Add pet":
             add_pet();
@@ -140,13 +141,29 @@ function send_add_pet() {
             "breed": breed
         },
         success: function (msg) {
-            console.log(msg)
-            load_pets();
-            selector.selectedIndex = 0;
-            $('#operation_form_pet').html('');
-            $('#btn_toggle').hide();
+            console.log(msg);
+            if (msg.status == "error" && msg.response == "all") {
+                $('#invalid').html('');
+                $('#invalid').append(
+                    "<div id='invalids'><label>&#8226;</label><label id='inv_text'>Missing name, age, type, gender, breed.</label></div>"
+                );
+            }
+            else if (msg.status == "error") {
+                $('#invalid').html('');
+                $('#invalid').append(
+                    "<div id='invalids'><label>&#8226;</label><label id='inv_text'>Missing " + msg.response + ".</label></div>"
+                );
+            }
+            else {
+                load_pets();
+                selector.selectedIndex = 0;
+                $('#invalid').html('');
+                $('#operation_form_pet').html('');
+                $('#btn_toggle').hide();
+            }
         },
         error: function (xhr, status) {
+            $('#invalid').html('');
             console.log("Error!")
         }
     });
@@ -220,13 +237,31 @@ function send_update_pet() {
             "breed": breed
         },
         success: function (msg) {
+
             console.log(msg)
-            selector.selectedIndex = 0;
-            load_pets();
-            $('#operation_form_pet').html('');
-            $('#btn_toggle').hide();
+            if (msg.status == "error" && msg.response == "all") {
+                $('#invalid').html('');
+                $('#invalid').append(
+                    "<div id='invalids'><label>&#8226;</label><label id='inv_text'>Enter at least one parameter to update.</label></div>"
+                );
+            }
+            else if (msg.status == "error" && msg.response == "pet") {
+                $('#invalid').html('');
+                $('#invalid').append(
+                    "<div id='invalids'><label>&#8226;</label><label id='inv_text'>Missing pet.</label></div>"
+                );
+            }
+            else {
+                load_pets();
+                selector.selectedIndex = 0;
+                $('#invalid').html('');
+                $('#operation_form_pet').html('');
+                $('#btn_toggle').hide();
+            }
+
         },
         error: function (xhr, status) {
+            $('#invalid').html('');
             console.log("Error!")
         }
     });
@@ -285,12 +320,23 @@ function send_delete_pet() {
         },
         success: function (msg) {
             console.log(msg)
-            selector.selectedIndex = 0;
-            load_pets();
-            $('#operation_form_pet').html('');
-            $('#btn_toggle').hide();
+            if (msg.status == "error" && msg.response == "pet") {
+                $('#invalid').html('');
+                $('#invalid').append(
+                    "<div id='invalids'><label>&#8226;</label><label id='inv_text'>Missing pet.</label></div>"
+                );
+            }
+            else {
+                load_pets();
+                selector.selectedIndex = 0;
+                $('#invalid').html('');
+                $('#operation_form_pet').html('');
+                $('#btn_toggle').hide();
+            }
+
         },
         error: function (xhr, status) {
+            $('#invalid').html('');
             console.log("Error!")
         }
     });
