@@ -2,7 +2,7 @@ defmodule SocketCommunication do
   alias Phoenix.Channels.GenSocketClient
   require Logger
 
-  @ws_host "ws://192.168.1.108:4000/socket/websocket"
+  @ws_host "ws://192.168.1.45:4000/socket/websocket"
   @ws_topic "feeder:communication"
   @ws_event Application.get_env(:smart_pet_feeder_agent, :serial_number)
 
@@ -36,8 +36,6 @@ defmodule SocketCommunication do
 
   def handle_joined(_topic, _payload, transport, state) do
     Logger.info("[WS] Joined the channel!")
-    IO.inspect(transport)
-    IO.inspect(self())
     {:ok, state}
   end
 
@@ -45,9 +43,10 @@ defmodule SocketCommunication do
     case payload do
       %{"message" => "fill_water"} ->
         Logger.info("[WS] Web app wants to fill water.")
+        FillWater.request()
 
       %{"message" => "fill_food"} ->
-        :fill_food
+        Logger.info("[WS] Web app wants to fill food.")
 
       _ ->
         message = payload["message"] |> Enum.at(0)

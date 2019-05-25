@@ -38,14 +38,14 @@ defmodule WaterSensors do
 
         status =
             case resp do
-                0 -> "NO"
-                1 -> "YES"
+                0 -> "YES"
+                1 -> "NO"
             end
 
         sensors_data = state.sensors_data
         new_sensors_data = %{sensors_data | top_water_sensor: status}
 
-
+        Logger.info("TOP Water: #{inspect(status)}")
 
         top_water_check()
         {:noreply, %{state | sensors_data: new_sensors_data}}
@@ -56,9 +56,11 @@ defmodule WaterSensors do
 
         status =
             case resp do
-                0 -> "NO"
-                1 -> "YES"
+                0 -> "YES"
+                1 -> "NO"
             end
+
+        Logger.info("BOTTOM Water: #{inspect(status)}")
 
         sensors_data = state.sensors_data
         new_sensors_data = %{sensors_data | bottom_water_sensor: status}
@@ -70,18 +72,18 @@ defmodule WaterSensors do
     ## Private functions
 
     defp gpio_init() do
-        top_level = Circuits.GPIO.open(17, :input)
-        bottom_level = Circuits.GPIO.open(27, :input)
+        top_level = Circuits.GPIO.open(20, :input)
+        bottom_level = Circuits.GPIO.open(21, :input)
 
         if elem(top_level, 0) != :ok || elem(bottom_level, 0) != :ok do
             gpio_init()
         else
-            Logger.info("[#{__MODULE__}] GPIO's initialized!")
+            Logger.info("[#{__MODULE__}] GPIO's Initialized!")
             {elem(top_level, 1), elem(bottom_level, 1)}
         end
 
     end
 
-    defp top_water_check(), do: Process.send_after(self(), :top_water_check, 1000)
-    defp bottom_water_check(), do: Process.send_after(self(), :bottom_water_check, 1000)
+    defp top_water_check(), do: Process.send_after(self(), :top_water_check, 4000)
+    defp bottom_water_check(), do: Process.send_after(self(), :bottom_water_check, 4000)
 end
