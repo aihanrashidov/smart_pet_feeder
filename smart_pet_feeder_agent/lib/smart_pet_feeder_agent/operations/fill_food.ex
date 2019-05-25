@@ -1,9 +1,14 @@
 defmodule FillFood do
+    require Logger
 
-    def request(_params) do
-      #TODO: Fill the specified amount of food.
-      response = "Got something as a resposne from the operation."
-      ResponseHandler.build_response(response)
+    def request(portions) do
+      try do
+        fill_food(portions)
+      rescue
+        error ->
+          Logger.error("[FillFood] GPIO Error - #{inspect(error)}")
+          request(portions)
+      end
     end
 
     def fill_food(portions) do
@@ -41,6 +46,8 @@ defmodule FillFood do
         for pin <- pins do
           Circuits.GPIO.write(pin, 0)
         end
+
+        SocketCommunication.send_request()
     end
 
 end

@@ -2,7 +2,7 @@ defmodule SocketCommunication do
   alias Phoenix.Channels.GenSocketClient
   require Logger
 
-  @ws_host "ws://192.168.1.45:4000/socket/websocket"
+  @ws_host "ws://192.168.1.108:4000/socket/websocket"
   @ws_topic "feeder:communication"
   @ws_event Application.get_env(:smart_pet_feeder_agent, :serial_number)
 
@@ -18,14 +18,20 @@ defmodule SocketCommunication do
 
   def start_link(_args) do
     GenSocketClient.start_link(
-          __MODULE__,
-          Phoenix.Channels.GenSocketClient.Transport.WebSocketClient,
-          @ws_host
-        )
+      __MODULE__,
+      Phoenix.Channels.GenSocketClient.Transport.WebSocketClient,
+      %{url: @ws_host},
+      [],
+      name: __MODULE__
+    )
   end
 
-  def init(url) do
-    {:connect, url, [], %{}}
+  def send_request() do
+    GenSocketClient.call(__MODULE__, {:send_operation_finished})
+  end
+
+  def init(data) do
+    {:connect, data.url, [], %{}}
   end
 
   def handle_connected(transport, state) do
@@ -34,19 +40,25 @@ defmodule SocketCommunication do
     {:ok, state}
   end
 
-  def handle_joined(_topic, _payload, transport, state) do
+  def handle_joined(_topic, _payload, _transport, state) do
     Logger.info("[WS] Joined the channel!")
     {:ok, state}
+  end
+
+  def handle_call({:send_operation_finished}, _pid, transport, state) do
+    GenSocketClient.push(transport, @ws_topic, "#{@ws_event}_operation_app", %{serial: @ws_event, operation: "done"})
+    {:reply, :ok, state}
   end
 
   def handle_message(_topic, "#{@ws_event}_agent", payload, transport, state) do
     case payload do
       %{"message" => "fill_water"} ->
         Logger.info("[WS] Web app wants to fill water.")
-        FillWater.request()
+        spawn( fn -> FillWater.request() end )
 
-      %{"message" => "fill_food"} ->
+      %{"message" => %{"message" => "fill_food", "portions" => portions}} ->
         Logger.info("[WS] Web app wants to fill food.")
+        spawn( fn -> FillFood.request(portions) end )
 
       _ ->
         message = payload["message"] |> Enum.at(0)
